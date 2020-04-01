@@ -13,6 +13,6 @@ const mapStateToProps = state => {
     return {
       name: state.namedValue
     }
-  }
+  } 
   
   export default connect(mapStateToProps)(Child);
