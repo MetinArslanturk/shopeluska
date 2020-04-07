@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import './index.css';
-import App from './App';
-import { createStore } from 'redux'
-import {myReducer} from './reducers'
+import AppRouter from './routers/AppRouter';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './config/configureStore';
 
-const store = createStore(myReducer)
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <AppRouter />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
