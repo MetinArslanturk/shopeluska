@@ -59,10 +59,30 @@ code {
   justify-content: center;
 }
 
-.header-wrapper {
-  display: flex;
+.header-wrapper .ant-row {
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  margin-right: 10px;
+  
+}
+
+.header-wrapper .search-box {
+  display: flex;
+}
+
+.logo-image {
+  max-width: 100%;
+  min-width: 280px;
+}
+
+.user-nav {
+  display: block;
+  padding-right: 5px;
+  margin-bottom: 2px;
+}
+
+.head-menu-toggle-button {
+  display: none;
 }
 
 @media only screen and (max-width: 992px) {
@@ -70,11 +90,23 @@ code {
     margin-left: 1rem;
   }
 
+  .head-menu-toggle-button {
+    display: block;
+    text-align: right;
+    padding-top: 10px;
+  }
+
+  .header-wrapper .search-box, .user-nav {
+    display: none;
+  }
+
   .ant-layout-sider { 
     border: none;
     padding: 0;
   }
-
+  .ant-layout-header { 
+    padding: 0;
+  }
   .ant-layout.ant-layout-has-sider {
     padding-left: 0.3rem;
     padding-right: 0.3rem;

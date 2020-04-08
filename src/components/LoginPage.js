@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
@@ -14,14 +15,14 @@ const tailLayout = {
 };
 
 
-const LoginPage = ({ hideSidebar, showSidebar, startLogin }) => {
+const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
 
     useMountEffect(() => {
         hideSidebar();
         return () => {
             // Give back the sidebar
             showSidebar();
-          }
+        }
     })
 
     const onFinish = values => {
@@ -31,48 +32,55 @@ const LoginPage = ({ hideSidebar, showSidebar, startLogin }) => {
 
     return (
         <>
-        <div className="login-wrapper">
-            <div className="login-form">
-                <Form
-                    {...layout}
-                    name="basic"
-                    initialValues={{ remember: true }}
-                    onFinish={onFinish}
-                >
-                    <Form.Item
-                        label="Username"
-                        name="username"
-                        rules={[{ required: true, message: 'Please input your username!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+            {isAuthenticated ? (
+                <Redirect to={redirectPath ? redirectPath : '/'} />
+            ) : (
+                    <div className="login-wrapper">
+                        <div className="login-form">
+                            <Form
+                                {...layout}
+                                name="basic"
+                                initialValues={{ remember: true }}
+                                onFinish={onFinish}
+                            >
+                                <Form.Item
+                                    label="Username"
+                                    name="username"
+                                    rules={[{ required: true, message: 'Please input your username!' }]}
+                                >
+                                    <Input />
+                                </Form.Item>
 
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        rules={[{ required: true, message: 'Please input your password!' }]}
-                    >
-                        <Input.Password />
-                    </Form.Item>
+                                <Form.Item
+                                    label="Password"
+                                    name="password"
+                                    rules={[{ required: true, message: 'Please input your password!' }]}
+                                >
+                                    <Input.Password />
+                                </Form.Item>
 
 
-                    <Form.Item {...tailLayout}>
-                        <Button type="primary" htmlType="submit">
-                            Submit
+                                <Form.Item {...tailLayout}>
+                                    <Button type="primary" htmlType="submit">
+                                        Submit
                         </Button>
-                    </Form.Item>
-                </Form>
-            </div>
-            </div>
+                                </Form.Item>
+                            </Form>
+                        </div>
+                    </div>
+                )}
+
         </>
     );
 }
 
-
+const mapStateToProps = (state) => ({
+    isAuthenticated: !!state.auth.uid
+});
 
 const mapDispatchToProps = (dispatch) => ({
     hideSidebar: () => dispatch(hideSidebar()),
     showSidebar: () => dispatch(showSidebar()),
     startLogin: () => dispatch(startLogin())
 })
-export default connect(undefined, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

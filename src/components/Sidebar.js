@@ -7,7 +7,7 @@ const Sidebar = ({showSidebar}) => {
     return (
         <>
             {showSidebar && <Sider breakpoint="lg"
-                collapsedWidth="0">Sider</Sider>
+                collapsedWidth="0">Sidebar</Sider>
                 }
         </>
     )

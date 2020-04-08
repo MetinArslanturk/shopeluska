@@ -11,16 +11,6 @@ export const PublicRoute = ({
   let TargetComponent = Component;
 
 
-  // If you want to protect a route use this
-
-  // if (false) { 
-  //   TargetComponent = Redirect;
-  //   TargetComponent.defaultProps = {
-  //     to: '/dash'
-  //   };
-  // }
- 
-
   return (
     <Route {...rest} component={TargetComponent} />
   )};
