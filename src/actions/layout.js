@@ -1,4 +1,4 @@
-export const showSideBar = () => ({
+export const showSidebar = () => ({
     type: 'SHOW_SIDEBAR'
 });
 

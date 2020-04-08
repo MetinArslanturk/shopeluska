@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import './index.css';
-import AppRouter from './routers/AppRouter';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './config/configureStore';
 
 const store = configureStore();
+export const history = createBrowserHistory();
+
+(() => {
+  const oldLogError = console.error
+  console.error = function(...args) {
+    if (typeof args[0] !== 'string' || args[0].indexOf('is deprecated in StrictMode') === -1) {
+      oldLogError.apply(console, args)
+    }
+  }
+})()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AppRouter />
+    <Router history={history}>
+      <App />
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

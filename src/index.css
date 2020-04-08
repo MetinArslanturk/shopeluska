@@ -15,7 +15,9 @@ code {
 }
 
 .ant-layout-header {
-  background-color: #f3f2f2;
+  background-color: #f9f9f9;
+  height: 84px;
+  box-shadow: 0 2px 8px #e6e6e6;
 }
 
 .ant-layout-sider {
@@ -26,8 +28,8 @@ code {
 }
 
 .ant-layout.ant-layout-has-sider {
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-left: 6.3rem;
+  padding-right: 8rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -46,6 +48,21 @@ code {
 .picture-cover {
   max-width: 100%;
   height: auto;
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 @media only screen and (max-width: 992px) {
