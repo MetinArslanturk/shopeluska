@@ -26,6 +26,7 @@ const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redi
     })
 
     const onFinish = values => {
+        // dummy start login
         startLogin();
     };
 
