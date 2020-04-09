@@ -17,7 +17,6 @@ const tailLayout = {
 
 
 export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
-    console.log('Mounted');
     useMountEffect(() => {
         hideSidebar();
         return () => {
