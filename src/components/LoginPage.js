@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { baseHref } from '../index';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
@@ -34,7 +35,7 @@ const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redi
     return (
         <>
             {isAuthenticated ? (
-                <Redirect to={redirectPath ? redirectPath : '/'} />
+                <Redirect to={redirectPath ? redirectPath : baseHref} />
             ) : (
                     <div className="login-wrapper">
                         <div className="login-form">

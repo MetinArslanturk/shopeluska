@@ -5,7 +5,6 @@ import PrivateRoute from './PrivateRoute';
 import MainPage from '../components/MainPage';
 import LoginPage from '../components/LoginPage';
 
-
 const AppRouter = (props) => {
     return (
 

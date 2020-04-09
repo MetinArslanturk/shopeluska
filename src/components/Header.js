@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import { history } from '../index';
+import { history, baseHref } from '../index';
 import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { BarsOutlined } from '@ant-design/icons';
@@ -8,7 +8,7 @@ const { Search } = Input;
 
 const Header = ({ uid }) => {
     const clickLogin = () => {
-        history.push('/login');
+        history.push(baseHref + 'login');
     }
 
    const [visibleNav, setVisibleNav] = useState(false);
@@ -20,7 +20,7 @@ const Header = ({ uid }) => {
             <Row>
                 <Col span={4}>
                     <div className="brand-logo">
-                        <Link to={'/'}><img alt="logo" className="logo-image" src="logo.png" /></Link>
+                        <Link to={baseHref}><img alt="logo" className="logo-image" src="logo.png" /></Link>
                     </div>
                 </Col>
                 <Col xs={4} sm={4} md={8} lg={8} xl={12}>
