@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should redirect when authenticated 1`] = `
+<Fragment>
+  <Redirect
+    to="/"
+  />
+</Fragment>
+`;
+
 exports[`should render login page when non-authenticated 1`] = `
 <Fragment>
   <div
@@ -9,6 +17,7 @@ exports[`should render login page when non-authenticated 1`] = `
       className="login-form"
     >
       <ForwardRef(InternalForm)
+        id="loginform"
         initialValues={
           Object {
             "remember": true,

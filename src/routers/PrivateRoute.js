@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { baseHref } from '../config/config';
 
 
 export const PrivateRoute = ({
@@ -18,7 +19,7 @@ export const PrivateRoute = ({
   if (!isAuthenticated) { 
     TargetComponent = Redirect;
     TargetComponent.defaultProps = {
-      to: '/'
+      to: baseHref
     };
   }
  

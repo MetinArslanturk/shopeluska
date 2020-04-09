@@ -17,7 +17,7 @@ const tailLayout = {
 
 
 export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
-
+    console.log('Mounted');
     useMountEffect(() => {
         hideSidebar();
         return () => {
@@ -44,6 +44,7 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
                                 name="basic"
                                 initialValues={{ remember: true }}
                                 onFinish={onFinish}
+                                id="loginform"
                             >
                                 <Form.Item
                                     label="Username"
