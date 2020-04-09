@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { history } from './config/config';
 import './index.scss';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './config/configureStore';
 
 const store = configureStore();
-export const history = createBrowserHistory();
-export const baseHref = '/';
+
 
 // Prevent deprecated in strictmode console warnings
 (() => {

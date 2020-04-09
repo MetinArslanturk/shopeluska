@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render login page when non-authenticated 1`] = `
+<Fragment>
+  <div
+    className="login-wrapper"
+  >
+    <div
+      className="login-form"
+    >
+      <ForwardRef(InternalForm)
+        initialValues={
+          Object {
+            "remember": true,
+          }
+        }
+        labelCol={
+          Object {
+            "span": 8,
+          }
+        }
+        name="basic"
+        onFinish={[Function]}
+        wrapperCol={
+          Object {
+            "span": 16,
+          }
+        }
+      >
+        <FormItem
+          label="Username"
+          name="username"
+          rules={
+            Array [
+              Object {
+                "message": "Please input your username!",
+                "required": true,
+              },
+            ]
+          }
+        >
+          <Input
+            type="text"
+          />
+        </FormItem>
+        <FormItem
+          label="Password"
+          name="password"
+          rules={
+            Array [
+              Object {
+                "message": "Please input your password!",
+                "required": true,
+              },
+            ]
+          }
+        >
+          <Password
+            action="click"
+            visibilityToggle={true}
+          />
+        </FormItem>
+        <FormItem
+          wrapperCol={
+            Object {
+              "offset": 8,
+              "span": 16,
+            }
+          }
+        >
+          <Button
+            block={false}
+            ghost={false}
+            htmlType="submit"
+            loading={false}
+            type="primary"
+          >
+            Submit
+          </Button>
+        </FormItem>
+      </ForwardRef(InternalForm)>
+    </div>
+  </div>
+</Fragment>
+`;

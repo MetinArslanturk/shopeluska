@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import { history, baseHref } from '../index';
+import { history, baseHref } from '../config/config';
 import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { BarsOutlined } from '@ant-design/icons';

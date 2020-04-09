@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { baseHref } from '../index';
+import { baseHref } from '../config/config';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
@@ -16,7 +16,7 @@ const tailLayout = {
 };
 
 
-const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
+export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
 
     useMountEffect(() => {
         hideSidebar();

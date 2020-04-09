@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { baseHref } from '../index';
+import { baseHref } from '../config/config';
 import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import { SkinOutlined, StarOutlined, TagsOutlined } from '@ant-design/icons';
