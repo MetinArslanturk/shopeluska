@@ -1,68 +1,86 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { history, baseHref } from '../config/config';
 import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { BarsOutlined } from '@ant-design/icons';
+import { startLogout } from '../actions/auth';
 const { Search } = Input;
 
-const Header = ({ uid }) => {
-    const clickLogin = () => {
-        history.push(baseHref + 'login');
-    }
+const clickLogin = () => {
+    history.push(baseHref + 'login');
+}
 
-   const [visibleNav, setVisibleNav] = useState(false);
+const clickMyAccount = () => {
+    history.push(baseHref + 'my-account');
+}
+
+const clickAdmin = () => {
+    history.push(baseHref + 'admin');
+}
+
+
+const Header = ({ uid, startLogout }) => {
+
+    const [visibleNav, setVisibleNav] = useState(false);
 
     return (
         <>
-        <div className="header-wrapper">
+            <div className="header-wrapper">
 
-            <Row>
-                <Col span={4}>
-                    <div className="brand-logo">
-                        <Link to={baseHref}><img alt="logo" className="logo-image" src="logo.png" /></Link>
-                    </div>
-                </Col>
-                <Col xs={4} sm={4} md={8} lg={8} xl={12}>
-                    <div className="search-box">
-                        <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
-                    </div>
-                </Col>
-                <Col xs={3} sm={3} md={4} lg={4} xl={4}>
-                    <div className="user-nav">
-                        {!(!!uid) && (
-                            <Button type="primary" onClick={clickLogin}>Login</Button>
-                        )}
-                        {!!uid && (
-                            <Button onClick={clickLogin}>My Account</Button>
-                        )}
-                    </div>
-                    <div className="head-menu-toggle-button">
-                        <BarsOutlined onClick={e => setVisibleNav(true)} style={{ fontSize: '32px', marginTop: '18px' }} />
-                    </div>
-                </Col>
+                <Row>
+                    <Col span={4}>
+                        <div className="brand-logo">
+                            <Link to={baseHref}><img alt="logo" className="logo-image" src="logo.png" /></Link>
+                        </div>
+                    </Col>
+                    <Col xs={4} sm={4} md={7} lg={8} xl={12}>
+                        <div className="search-box">
+                            <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+                        </div>
+                    </Col>
+                    <Col xs={4} sm={6} md={6} lg={6} xl={4}>
+                        <div className="user-nav">
+                            {!(!!uid) && (
+                                <Button type="primary" onClick={clickLogin}>Login</Button>
+                            )}
+                            {!!uid && (
+                                <>
+                                    <Button type="primary" onClick={clickMyAccount}>My Account</Button>
+                                    <Button className="logout-button" onClick={startLogout}>Logout</Button>
+                                </>
+                            )}
+                        </div>
+                        <div className="head-menu-toggle-button">
+                            <BarsOutlined onClick={e => setVisibleNav(true)} style={{ fontSize: '32px', marginTop: '18px' }} />
+                        </div>
+                    </Col>
 
 
-            </Row>
-        </div>
-        <Drawer
-          title="Shopeluska Navigation"
-          placement="right"
-          closable={true}
-          onClose={() => {
-              setVisibleNav(false);
-          }}
-          visible={visibleNav}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Drawer>
+                </Row>
+            </div>
+            <Drawer
+                title="Shopeluska Navigation"
+                placement="right"
+                closable={true}
+                onClose={() => {
+                    setVisibleNav(false);
+                }}
+                visible={visibleNav}
+            >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
         </>
     )
 }
 const mapStateToProps = (state) => ({
     uid: state.auth.uid
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    startLogout: () => dispatch(startLogout())
 })
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
