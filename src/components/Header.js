@@ -20,8 +20,7 @@ const clickAdmin = () => {
 }
 
 
-const Header = ({ uid, startLogout }) => {
-
+export const Header = ({ uid, startLogout}) => {
     const [visibleNav, setVisibleNav] = useState(false);
 
     return (
@@ -42,7 +41,7 @@ const Header = ({ uid, startLogout }) => {
                     <Col xs={4} sm={6} md={6} lg={6} xl={4}>
                         <div className="user-nav">
                             {!(!!uid) && (
-                                <Button type="primary" onClick={clickLogin}>Login</Button>
+                                <Button type="primary" className="login-button" onClick={clickLogin}>Login</Button>
                             )}
                             {!!uid && (
                                 <>

@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header when authenticated 1`] = `
+<Fragment>
+  <div
+    className="header-wrapper"
+  >
+    <Row
+      gutter={0}
+    >
+      <Col
+        span={4}
+      >
+        <div
+          className="brand-logo"
+        >
+          <Link
+            to="/"
+          >
+            <img
+              alt="logo"
+              className="logo-image"
+              src="logo.png"
+            />
+          </Link>
+        </div>
+      </Col>
+      <Col
+        lg={8}
+        md={7}
+        sm={4}
+        xl={12}
+        xs={4}
+      >
+        <div
+          className="search-box"
+        >
+          <Search
+            enterButton={true}
+            onSearch={[Function]}
+            placeholder="input search text"
+          />
+        </div>
+      </Col>
+      <Col
+        lg={6}
+        md={6}
+        sm={6}
+        xl={4}
+        xs={4}
+      >
+        <div
+          className="user-nav"
+        >
+          <Button
+            block={false}
+            ghost={false}
+            htmlType="button"
+            loading={false}
+            onClick={[Function]}
+            type="primary"
+          >
+            My Account
+          </Button>
+          <Button
+            block={false}
+            className="logout-button"
+            ghost={false}
+            htmlType="button"
+            loading={false}
+            onClick={[MockFunction]}
+          >
+            Logout
+          </Button>
+        </div>
+        <div
+          className="head-menu-toggle-button"
+        >
+          <ForwardRef(BarsOutlined)
+            onClick={[Function]}
+            style={
+              Object {
+                "fontSize": "32px",
+                "marginTop": "18px",
+              }
+            }
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+  <withConfigConsumer(Drawer)
+    closable={true}
+    onClose={[Function]}
+    placement="right"
+    title="Shopeluska Navigation"
+    visible={false}
+  >
+    <p>
+      Some contents...
+    </p>
+    <p>
+      Some contents...
+    </p>
+    <p>
+      Some contents...
+    </p>
+  </withConfigConsumer(Drawer)>
+</Fragment>
+`;
+
+exports[`should render header when non-authenticated 1`] = `
+<Fragment>
+  <div
+    className="header-wrapper"
+  >
+    <Row
+      gutter={0}
+    >
+      <Col
+        span={4}
+      >
+        <div
+          className="brand-logo"
+        >
+          <Link
+            to="/"
+          >
+            <img
+              alt="logo"
+              className="logo-image"
+              src="logo.png"
+            />
+          </Link>
+        </div>
+      </Col>
+      <Col
+        lg={8}
+        md={7}
+        sm={4}
+        xl={12}
+        xs={4}
+      >
+        <div
+          className="search-box"
+        >
+          <Search
+            enterButton={true}
+            onSearch={[Function]}
+            placeholder="input search text"
+          />
+        </div>
+      </Col>
+      <Col
+        lg={6}
+        md={6}
+        sm={6}
+        xl={4}
+        xs={4}
+      >
+        <div
+          className="user-nav"
+        >
+          <Button
+            block={false}
+            className="login-button"
+            ghost={false}
+            htmlType="button"
+            loading={false}
+            onClick={[Function]}
+            type="primary"
+          >
+            Login
+          </Button>
+        </div>
+        <div
+          className="head-menu-toggle-button"
+        >
+          <ForwardRef(BarsOutlined)
+            onClick={[Function]}
+            style={
+              Object {
+                "fontSize": "32px",
+                "marginTop": "18px",
+              }
+            }
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+  <withConfigConsumer(Drawer)
+    closable={true}
+    onClose={[Function]}
+    placement="right"
+    title="Shopeluska Navigation"
+    visible={false}
+  >
+    <p>
+      Some contents...
+    </p>
+    <p>
+      Some contents...
+    </p>
+    <p>
+      Some contents...
+    </p>
+  </withConfigConsumer(Drawer)>
+</Fragment>
+`;

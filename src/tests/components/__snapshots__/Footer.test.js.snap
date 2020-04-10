@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer 1`] = `
+<Fragment>
+  <div>
+    Copyright to 
+    <a
+      href="http://www.metinarslanturk.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Metin Arslanturk
+    </a>
+     You can check 
+    <a
+      href="https://github.com/MetinArslanturk/shopeluska"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      GitHub of This Project
+    </a>
+  </div>
+</Fragment>
+`;
