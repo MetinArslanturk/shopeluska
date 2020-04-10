@@ -3,12 +3,7 @@ import { Header } from '../../components/Header';
 import { history, baseHref } from '../../config/config';
 import { shallow } from 'enzyme';
 
-jest.mock('../../config/config', () => (
-    {
-        ...(jest.requireActual('../../config/config')),
-        history: { push: jest.fn() }
-    }
-));
+jest.mock('../../config/config');
 
 
 test('should render header when non-authenticated', () => {
