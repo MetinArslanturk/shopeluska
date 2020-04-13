@@ -54,6 +54,7 @@ exports[`should render header when authenticated 1`] = `
         >
           <Button
             block={false}
+            className="my-account-button"
             ghost={false}
             htmlType="button"
             loading={false}

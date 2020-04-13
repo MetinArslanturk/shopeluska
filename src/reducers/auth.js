@@ -1,5 +1,5 @@
 const authDefaultState = {
-    uid: ''
+    user: {uid:''}
 };
 
 export default (state = authDefaultState, action) => {
@@ -7,12 +7,12 @@ export default (state = authDefaultState, action) => {
     case 'SET_LOGGED_IN':
       return {
         ...state,
-        uid: action.uid
+        user: action.user
       };
       case 'SET_LOG_OUT':
         return {
           ...state,
-          uid: ''
+          user: {uid:''}
         };
     default:
       return state;

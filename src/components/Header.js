@@ -5,6 +5,7 @@ import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { BarsOutlined } from '@ant-design/icons';
 import { startLogout } from '../actions/auth';
+import {getUserName, isAuthenticated} from '../selectors/auth';
 const { Search } = Input;
 
 const clickLogin = () => {
@@ -20,7 +21,7 @@ const clickAdmin = () => {
 }
 
 
-export const Header = ({ uid, startLogout}) => {
+export const Header = ({ isAuthenticated, username, startLogout}) => {
     const [visibleNav, setVisibleNav] = useState(false);
 
     return (
@@ -40,12 +41,12 @@ export const Header = ({ uid, startLogout}) => {
                     </Col>
                     <Col xs={4} sm={6} md={6} lg={6} xl={4}>
                         <div className="user-nav">
-                            {!(!!uid) && (
+                            {!isAuthenticated && (
                                 <Button type="primary" className="login-button" onClick={clickLogin}>Login</Button>
                             )}
-                            {!!uid && (
+                            {isAuthenticated && (
                                 <>
-                                    <Button type="primary" onClick={clickMyAccount}>My Account</Button>
+                                    <Button className="my-account-button" type="primary" onClick={clickMyAccount}>My Account</Button>
                                     <Button className="logout-button" onClick={startLogout}>Logout</Button>
                                 </>
                             )}
@@ -75,7 +76,8 @@ export const Header = ({ uid, startLogout}) => {
     )
 }
 const mapStateToProps = (state) => ({
-    uid: state.auth.uid
+    isAuthenticated: isAuthenticated(state.auth.user),
+    username: getUserName(state.auth.user)
 });
 
 const mapDispatchToProps = (dispatch) => ({

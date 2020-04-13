@@ -11,7 +11,7 @@ const AppRouter = (props) => {
         <Switch>
             <PublicRoute path="/" component={MainPage} exact={true} sidebar={true}/>
             <PublicRoute path="/login" component={LoginPage} exact={true} sidebar={false}/>
-            <PrivateRoute path="/secret" component={MainPage} exact={true} sidebar={true}/>
+            <PrivateRoute path="/my-account" component={MainPage} exact={true} sidebar={true}/>
         </Switch>
     );
 }

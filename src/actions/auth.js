@@ -1,6 +1,6 @@
-const setLoggedIn = (uid) => ({
+const setLoggedIn = (user) => ({
     type: 'SET_LOGGED_IN',
-    uid: uid
+    user: user
 });
 
 const setLoggedOut = () => ({
@@ -10,7 +10,7 @@ const setLoggedOut = () => ({
 export const startLogin = () => {
     return (dispatch) => {
         // login stuff
-        dispatch(setLoggedIn('a123'));
+        dispatch(setLoggedIn({uid:'a123', username:'Metin'}));
     }
 }
 

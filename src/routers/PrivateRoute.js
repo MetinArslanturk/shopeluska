@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { baseHref } from '../config/config';
+import {isAuthenticated} from '../selectors/auth';
 
 
 export const PrivateRoute = ({
@@ -30,7 +31,7 @@ export const PrivateRoute = ({
 
 
   const mapStateToProps = (state) => ({
-    isAuthenticated: !!state.auth.uid
+    isAuthenticated: isAuthenticated(state.auth.user)
 })
 
 export default connect(mapStateToProps)(PrivateRoute);

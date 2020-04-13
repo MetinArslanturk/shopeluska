@@ -5,6 +5,7 @@ import { baseHref } from '../config/config';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
+import {isAuthenticated} from '../selectors/auth';
 import { Form, Input, Button } from 'antd';
 
 const layout = {
@@ -77,7 +78,7 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
 }
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: !!state.auth.uid
+    isAuthenticated: isAuthenticated(state.auth.user)
 });
 
 const mapDispatchToProps = (dispatch) => ({
