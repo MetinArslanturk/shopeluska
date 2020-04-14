@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { baseHref } from '../config/config';
 import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
-import { SkinOutlined, StarOutlined, TagsOutlined } from '@ant-design/icons';
 const { Sider } = Layout;
 
 const Sidebar = ({ showSidebar }) => {
 
     const menuItems = [
         {
-            content: <><SkinOutlined /> Clothing</>,
+            content: 'Homepage',
+            link: ''
+        },
+        {
+            content: 'Clothing',
             link: 'clothing'
         },
         {
-            content: <><TagsOutlined /> Shoes</>,
+            content: 'Shoes',
             link: 'shoes'
         },
         {
-            content: <><StarOutlined /> Accessories</>,
+            content: 'Accessories',
             link: 'accessories'
         }
     ];
 
-    const [selectedMenu, setSelectedMenu] = useState(null);
 
 
     return (
         <>
-            {showSidebar && <Sider breakpoint="lg"
+            {showSidebar && <Sider breakpoint="lg" width={230}
                 collapsedWidth="0">
-                <div className="side-menu">
+                <nav className="nav">
+                    <ul>
+                        {menuItems.map((item, indice) => {
+                            return (
+                                <li key={indice}><Link to={baseHref + item.link}>{item.content}</Link></li>
+                            )
+                        })}
 
-                    {menuItems.map((item,indice) => {
-                        return (
-                            <Link to={baseHref + item.link} key={indice}><div className={'side-menu-item' + (selectedMenu === indice ? ' side-menu-item-selected' : '')} onClick={e => {
-                                setSelectedMenu(indice);
-                            }}>
-                                {item.content}
-                                </div></Link>
-                        )
-                    })}
-                </div>
+                    </ul>
+                </nav>
             </Sider>
             }
         </>

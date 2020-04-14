@@ -2,6 +2,8 @@
   "name": "shopeluska",
   "version": "0.1.0",
   "private": true,
+  "author": "Metin Arslantürk",
+  "license": "ISC",
   "dependencies": {
     "@ant-design/icons": "^4.0.5",
     "@testing-library/jest-dom": "^4.2.4",

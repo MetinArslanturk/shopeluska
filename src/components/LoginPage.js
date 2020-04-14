@@ -5,7 +5,8 @@ import { baseHref } from '../config/config';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
-import {isAuthenticated} from '../selectors/auth';
+import { showErrorNotification } from './Notification';
+import { isAuthenticated } from '../selectors/auth';
 import { Form, Input, Button } from 'antd';
 
 const layout = {
@@ -28,6 +29,7 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
 
     const onFinish = values => {
         // dummy start login
+    //    showErrorNotification('Error', 'Given username or password is incorrect!', 0);
         startLogin();
     };
 
