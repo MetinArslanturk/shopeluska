@@ -25,4 +25,8 @@ const openNotification = (title = '', description = '', duration = 0, type = 'in
     openNotification(title, desc, duration, 'warning');
   };
 
+  export const destroyNotifications = () => {
+    notification.destroy();
+  }
+
   

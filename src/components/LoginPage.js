@@ -5,7 +5,6 @@ import { baseHref } from '../config/config';
 import { useMountEffect } from '../helpers/mounteffect';
 import { hideSidebar, showSidebar } from '../actions/layout';
 import { startLogin } from '../actions/auth';
-import { showErrorNotification } from './Notification';
 import { isAuthenticated } from '../selectors/auth';
 import { Form, Input, Button } from 'antd';
 
@@ -29,8 +28,7 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
 
     const onFinish = values => {
         // dummy start login
-    //    showErrorNotification('Error', 'Given username or password is incorrect!', 0);
-        startLogin();
+        startLogin(values);
     };
 
 
@@ -49,9 +47,9 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
                                 id="loginform"
                             >
                                 <Form.Item
-                                    label="Username"
-                                    name="username"
-                                    rules={[{ required: true, message: 'Please input your username!' }]}
+                                    label="Email"
+                                    name="email"
+                                    rules={[{ required: true, message: 'Please input your email!' }]}
                                 >
                                     <Input />
                                 </Form.Item>
@@ -86,6 +84,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     hideSidebar: () => dispatch(hideSidebar()),
     showSidebar: () => dispatch(showSidebar()),
-    startLogin: () => dispatch(startLogin())
+    startLogin: (values) => dispatch(startLogin(values))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
