@@ -26,14 +26,17 @@ export const startLogin = ({ email, password }) => {
 
 export const startLogout = () => {
     return (dispatch) => {
-        dispatch(setLoggedOut());
+        return authService.logout().then(res => {
+        // logged out
+        }).finally(() => {
+            dispatch(setLoggedOut());
+        });
     }
 }
 
 export const checkLogin = () => {
     return (dispatch) => {
         return authService.checkLogin().then(res => {
-            console.log(res.data);
             const user = res.data;
             if (user.caut) {
                 dispatch(setLoggedIn({ uid: user.id, username: user.name, isA: user.isA }));

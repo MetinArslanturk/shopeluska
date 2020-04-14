@@ -6,5 +6,9 @@ export const checkLogin = () => {
 }
 
 export const login = (body) => {
-    return axios.post('/api/login', body)
+    return axios.post('/api/login', body);
+}
+
+export const logout = () => {
+    return axios.get('/api/logout');
 }

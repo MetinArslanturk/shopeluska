@@ -13,7 +13,6 @@ const { Header: LayoutHeader, Footer: LayoutFooter, Content } = Layout;
 
 class App extends React.Component {
     componentDidMount() {
-        console.log('rendered main app');
         this.props.dispatch(checkLogin());
     }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { baseHref } from '../config/config';
 import { Layout } from 'antd';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const { Sider } = Layout;
 
 const Sidebar = ({ showSidebar }) => {
@@ -36,7 +36,7 @@ const Sidebar = ({ showSidebar }) => {
                     <ul>
                         {menuItems.map((item, indice) => {
                             return (
-                                <li key={indice}><Link to={baseHref + item.link}>{item.content}</Link></li>
+                                <li key={indice}><NavLink activeClassName='active' exact={true} to={baseHref + item.link}>{item.content}</NavLink></li>
                             )
                         })}
 

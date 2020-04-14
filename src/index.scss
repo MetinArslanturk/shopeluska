@@ -149,20 +149,20 @@ code {
       text-transform: uppercase;
       text-decoration: none;
       letter-spacing: 0.4em;
-      color: rgb(36, 36, 36);
+      color: #636363;
       display: block;
       transition: all ease-out 300ms;
     }
     
-    &.active a {
-      color: rgb(3, 3, 3);
+    & a.active {
+      color: #dc7171;
     }
     
     &:not(.active)::after {
       opacity: 0.2;
     }
     
-    &:not(.active):hover a {
+    & a:not(.active):hover {
       color: rgba(rgb(100, 100, 100), 0.75);
     }
     

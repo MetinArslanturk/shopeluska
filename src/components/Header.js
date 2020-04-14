@@ -16,11 +16,6 @@ const clickMyAccount = () => {
     history.push(baseHref + 'my-account');
 }
 
-const clickAdmin = () => {
-    history.push(baseHref + 'admin');
-}
-
-
 export const Header = ({ isAuthenticated, username, startLogout}) => {
     const [visibleNav, setVisibleNav] = useState(false);
 
