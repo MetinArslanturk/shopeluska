@@ -6,3 +6,7 @@ export const getUserName = (user) => {
     return user.uid ? user.username : '';
 };
 
+export const isAdmin = (user) => {
+    return !!user.isA;
+};
+

@@ -1,14 +1,15 @@
 import axios from 'axios';
+import { apiBase } from '../config/config';
 
 
 export const checkLogin = () => {
-    return axios.get('/api/checkLogin');
+    return axios.get(apiBase + 'checkLogin');
 }
 
 export const login = (body) => {
-    return axios.post('/api/login', body);
+    return axios.post(apiBase + 'login', body);
 }
 
 export const logout = () => {
-    return axios.get('/api/logout');
+    return axios.get(apiBase + 'logout');
 }

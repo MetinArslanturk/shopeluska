@@ -13,7 +13,7 @@ const clickLogin = () => {
 }
 
 const clickMyAccount = () => {
-    history.push(baseHref + 'my-account/my-profile');
+    history.push(baseHref + 'my-account');
 }
 
 export const Header = ({ isAuthenticated, username, startLogout}) => {
