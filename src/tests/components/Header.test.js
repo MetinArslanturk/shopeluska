@@ -39,5 +39,5 @@ test('should trigger history push when authenticated and click my account', () =
     const wrapper = shallow(<Header isAuthenticated={true} startLogout={startLogout} />)
     wrapper.find('.my-account-button').prop('onClick')();
 
-    expect(history.push).toHaveBeenLastCalledWith(baseHref + 'my-account');
+    expect(history.push).toHaveBeenLastCalledWith(baseHref + 'my-account/my-profile');
 });
