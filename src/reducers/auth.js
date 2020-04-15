@@ -9,6 +9,11 @@ export default (state = authDefaultState, action) => {
         ...state,
         user: action.user
       };
+      case 'UPDATE_MY_PROFILE':
+        return {
+          ...state,
+          user: action.user
+        };
       case 'SET_LOG_OUT':
         return {
           ...state,

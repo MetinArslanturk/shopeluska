@@ -10,6 +10,10 @@ export const login = (body) => {
     return axios.post(apiBase + 'login', body);
 }
 
+export const updateMyProfile = (body) => {
+    return axios.post(apiBase + 'users/updateMyProfile', body)
+}
+
 export const logout = () => {
     return axios.get(apiBase + 'logout');
 }

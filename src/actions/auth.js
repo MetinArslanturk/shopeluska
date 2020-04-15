@@ -10,14 +10,33 @@ const setLoggedOut = () => ({
     type: 'SET_LOG_OUT'
 });
 
+const updateMyProfile = (user) => ({
+    type: 'UPDATE_MY_PROFILE',
+    user: user
+})
+
 export const startLogin = ({ email, password }) => {
     return (dispatch) => {
         destroyNotifications();
         return authService.login({ email, password }).then(res => {
             const user = res.data;
-            dispatch(setLoggedIn({ uid: user.id, username: user.name, isA: user.isA }));
+            dispatch(setLoggedIn({ uid: user._id, username: user.name, isA: user.isA, email: user.email }));
         }).catch(err => {
             showErrorNotification('Error', 'Given email or password is incorrect!', 0);
+            return;
+        })
+
+    }
+}
+
+export const startUpdateMyProfile = (values) => {
+    return (dispatch) => {
+        destroyNotifications();
+        return authService.updateMyProfile(values).then(res => {
+            const user = res.data;
+            dispatch(updateMyProfile({ uid: user._id, username: user.name, isA: user.isA, email: user.email }));
+        }).catch(err => {
+            showErrorNotification('Error', 'Some error occurred!', 0);
             return;
         })
 
@@ -39,7 +58,7 @@ export const checkLogin = () => {
         return authService.checkLogin().then(res => {
             const user = res.data;
             if (user.caut) {
-                dispatch(setLoggedIn({ uid: user.id, username: user.name, isA: user.isA }));
+                dispatch(setLoggedIn({ uid: user._id, username: user.name, isA: user.isA, email: user.email }));
             } else {
                 return;
             }

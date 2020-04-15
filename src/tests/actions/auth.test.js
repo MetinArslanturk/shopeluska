@@ -11,7 +11,7 @@ test('should start login', (done) => {
         const actions = store.getActions();
         expect(actions[0]).toEqual({
             type: 'SET_LOGGED_IN',
-            user: {uid: expect.any(String), username: 'admin', isA: true}
+            user: {uid: expect.any(String), username: 'admin', isA: true, email: 'admin@test.com'}
         });
         done();
     });
