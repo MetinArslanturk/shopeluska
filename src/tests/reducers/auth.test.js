@@ -9,6 +9,15 @@ test('should set user for login', () => {
     expect(state.user).toEqual(action.user);
 });
 
+test('should set user for update profile', () => {
+    const action = {
+            type: 'UPDATE_MY_PROFILE',
+            user: {uid: 'a124'}
+        };
+    const state = authReducer({user: {uid: ''}}, action);
+    expect(state.user).toEqual(action.user);
+});
+
 
 test('should set empty string uid for logout', () => {
     const action = {

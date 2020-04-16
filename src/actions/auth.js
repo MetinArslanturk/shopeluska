@@ -1,4 +1,4 @@
-import { showErrorNotification, destroyNotifications } from '../components/Notification';
+import { showErrorNotification, destroyNotifications, showSuccessNotification } from '../components/Notification';
 import * as authService from '../services/auth';
 
 const setLoggedIn = (user) => ({
@@ -34,7 +34,8 @@ export const startUpdateMyProfile = (values) => {
         destroyNotifications();
         return authService.updateMyProfile(values).then(res => {
             const user = res.data;
-            dispatch(updateMyProfile({ uid: user._id, username: user.name, isA: user.isA, email: user.email }));
+            dispatch(updateMyProfile({ uid: user._id, username: user.name, isA: user.isAdmin, email: user.email }));
+            showSuccessNotification('Success', 'Your profile updated successfully', 2);
         }).catch(err => {
             showErrorNotification('Error', 'Some error occurred!', 0);
             return;
