@@ -136,8 +136,13 @@ code {
 .logout-button {
   margin-left: 10px;
 }
+.ant-form-item-has-success.ant-form-item-has-feedback .ant-form-item-children-icon {
+  display: none;
+}
 
-
+.ant-form-item-has-feedback :not(.ant-input-group-addon) > .ant-select .ant-select-arrow {
+  right: 11px;
+}
 
 .nav ul {
   list-style: none;

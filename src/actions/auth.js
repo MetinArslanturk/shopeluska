@@ -24,7 +24,7 @@ export const startLogin = ({ email, password }) => {
         }).catch(err => {
             showErrorNotification('Error', 'Given email or password is incorrect!', 0);
             return;
-        })
+        });
 
     }
 }
