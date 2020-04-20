@@ -11,6 +11,11 @@ const setProducts = (products) => ({
     products
 });
 
+const deleteProduct = (id) => ({
+    type: 'DELETE_PRODUCT',
+    productId: id
+})
+
 export const startAddProduct = (data) => {
     return (dispatch) => {
         destroyNotifications();
@@ -34,6 +39,17 @@ export const startSetProducts = () => {
             dispatch(setProducts(products));
         }).catch(err => {
             showErrorNotification('Error', 'Error occured while getting products.', 2);
+        });
+    }
+};
+
+export const startDeleteProduct = (id) => {
+    return (dispatch) => {
+        return productsService.deleteProduct(id).then((res) => {
+            dispatch(deleteProduct(id));
+            showSuccessNotification('Success', 'Product deleted successfully.', 3);
+        }).catch(err => {
+            showErrorNotification('Error', 'Error occured while deleting product.', 2);
         });
     }
 };

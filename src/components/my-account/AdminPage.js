@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {startDeleteProduct } from '../../actions/products';
+import { productColumns } from '../../helpers/productColumns';
 import ActionButton from '../ActionButton';
+import { deleteConfirm } from '../ConfirmPopup'
 import AddUpdateProductModal from '../AddUpdateProductModal';
 import { Table } from 'antd';
 
@@ -12,45 +15,34 @@ export class AdminPage extends React.Component {
         productData: {}
     };
 
+    columns = [...productColumns, {
+        title: 'Actions',
+        dataIndex: 'action',
+        render: (text, record) => (
+            <span>
+                <ActionButton
+                    text="Edit"
+                    onClickActionFunction={this.openAddUpdateProductModal}
+                    itemToArguments={record}
+                />
+  
+                <ActionButton
+                    text="Delete"
+                    onClickActionFunction={this.handleDelete}
+                    itemToArguments={record}
+                />
+            </span>
+        ),
+      }];
 
-    productColumns = [
-        {
-          title: 'Name',
-          dataIndex: 'name'
-        },
-        {
-          title: 'Description',
-          dataIndex: 'description'
-        },
-        {
-            title: 'Price',
-            dataIndex: 'price'
-        },
-        {
-          title: 'Stock',
-          dataIndex: 'stock'
-        },
-        {
-          title: 'Actions',
-          dataIndex: 'action',
-          render: (text, record) => (
-              <span>
-                  <ActionButton
-                      text="Edit"
-                      onClickActionFunction={this.openAddUpdateProductModal}
-                      itemToArguments={record}
-                  />
 
-                  <ActionButton
-                      text="Delete"
-                      onClickActionFunction={this.openAddUpdateProductModal}
-                      itemToArguments={record}
-                  />
-              </span>
-          ),
-        },
-      ];
+    handleDeleteConfirm = (id) => {
+        this.props.startDeleteProduct(id);
+    }
 
+    handleDelete = (record) => {
+        deleteConfirm(this.handleDeleteConfirm, record._id);
+    };
 
     handleClose = () => {
         this.setState(() => ({ addProductOpen: false }));
@@ -67,7 +59,7 @@ export class AdminPage extends React.Component {
     render() {
         return (
             <>
-                Manage Products <br />
+                <h2>Manage Products</h2> <br />
 
                 <div className="align-to-right">
                     <ActionButton
@@ -86,7 +78,7 @@ export class AdminPage extends React.Component {
                     handleClose={this.handleClose}>
                 </AddUpdateProductModal>
 
-                <Table columns={this.productColumns} dataSource={this.props.products} />
+                <Table columns={this.columns} dataSource={this.props.products} />
             </>
         )
     }
@@ -94,6 +86,10 @@ export class AdminPage extends React.Component {
 
 const mapStateToProps = (state) => ({
     products: state.products.products
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    startDeleteProduct: (id) => dispatch(startDeleteProduct(id))
 })
 
-export default connect(mapStateToProps)(AdminPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

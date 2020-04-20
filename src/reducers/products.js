@@ -9,10 +9,10 @@ export default (state = productsDefaultState, action) => {
                 ...state,
                 products: [...state.products, action.product]
             };
-        case 'REMOVE_PRODUCT':
+        case 'DELETE_PRODUCT':
             return {
                 ...state,
-                products: state.products.filter(({ id }) => id !== action.productId)
+                products: state.products.filter(({ _id }) => _id !== action.productId)
             };
         case 'SET_PRODUCTS':
             return {

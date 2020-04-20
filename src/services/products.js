@@ -8,3 +8,7 @@ export const addNewProduct = (body) => {
 export const getAllProducts = () => {
     return axios.get(apiBase + 'products');
 }
+
+export const deleteProduct = (id) => {
+    return axios.delete(apiBase + 'products/' + id);
+}
