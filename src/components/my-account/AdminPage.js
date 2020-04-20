@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddUpdateProductModal from '../AddProduct';
+import ActionButton from '../ActionButton';
+import AddUpdateProductModal from '../AddUpdateProductModal';
+import { Table } from 'antd';
 
 export class AdminPage extends React.Component {
 
@@ -8,37 +10,90 @@ export class AdminPage extends React.Component {
         addProductOpen: false,
         isUpdate: false,
         productData: {}
-    }
+    };
+
+
+    productColumns = [
+        {
+          title: 'Name',
+          dataIndex: 'name'
+        },
+        {
+          title: 'Description',
+          dataIndex: 'description'
+        },
+        {
+            title: 'Price',
+            dataIndex: 'price'
+        },
+        {
+          title: 'Stock',
+          dataIndex: 'stock'
+        },
+        {
+          title: 'Actions',
+          dataIndex: 'action',
+          render: (text, record) => (
+              <span>
+                  <ActionButton
+                      text="Edit"
+                      onClickActionFunction={this.openAddUpdateProductModal}
+                      itemToArguments={record}
+                  />
+
+                  <ActionButton
+                      text="Delete"
+                      onClickActionFunction={this.openAddUpdateProductModal}
+                      itemToArguments={record}
+                  />
+              </span>
+          ),
+        },
+      ];
 
 
     handleClose = () => {
-        this.setState(() => ({ addProductOpen: false, isUpdate: false }));
+        this.setState(() => ({ addProductOpen: false }));
     }
 
     handleSave = (savedProduct) => {
-        this.setState(() => ({ addProductOpen: false, isUpdate: false }));
+        this.setState(() => ({ addProductOpen: false }));
     }
 
-    openAddNewProductModal = () => {
-        this.setState(() => ({ addProductOpen: true, isUpdate: false }));
+    openAddUpdateProductModal = (record) => {
+            this.setState(() => ({ addProductOpen: true, isUpdate: !!record, productData: record }));
     }
 
     render() {
         return (
             <>
-                Manage Products
+                Manage Products <br />
 
-                <button onClick={this.openAddNewProductModal}>Add</button>
+                <div className="align-to-right">
+                    <ActionButton
+                        text="Add New Product"
+                        type="primary"
+                        onClickActionFunction={this.openAddUpdateProductModal}
+                        itemToArguments={undefined}
+                    />
+                </div>
 
                 <AddUpdateProductModal
                     isOpen={this.state.addProductOpen}
                     isUpdate={this.state.isUpdate}
+                    productData={this.state.productData}
                     handleSave={this.handleSave}
                     handleClose={this.handleClose}>
                 </AddUpdateProductModal>
+
+                <Table columns={this.productColumns} dataSource={this.props.products} />
             </>
         )
     }
 }
 
-export default connect(undefined)(AdminPage);
+const mapStateToProps = (state) => ({
+    products: state.products.products
+})
+
+export default connect(mapStateToProps)(AdminPage);

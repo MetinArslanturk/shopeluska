@@ -19,7 +19,7 @@ export const AddUpdateProductModal = ({ isOpen, startAddProduct, startUpdateProd
                 // optional action
             });
         } else {
-
+            console.log('Update actions...')
         }
 
     };

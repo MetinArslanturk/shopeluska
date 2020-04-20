@@ -4,7 +4,12 @@ import * as productsService from '../services/products';
 const addProduct = (data) => ({
     type: 'ADD_NEW_PRODUCT',
     product: data
-})
+});
+
+const setProducts = (products) => ({
+    type: 'SET_PRODUCTS',
+    products
+});
 
 export const startAddProduct = (data) => {
     return (dispatch) => {
@@ -20,4 +25,15 @@ export const startAddProduct = (data) => {
         });
 
     }
-}
+};
+
+export const startSetProducts = () => {
+    return (dispatch) => {
+        return productsService.getAllProducts().then((res) => {
+            const products = res.data;
+            dispatch(setProducts(products));
+        }).catch(err => {
+            showErrorNotification('Error', 'Error occured while getting products.', 2);
+        });
+    }
+};
