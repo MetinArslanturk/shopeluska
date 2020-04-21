@@ -6,7 +6,7 @@ const { Title } = Typography;
 
 class MainPage extends React.Component {
   product = {
-    imgSource: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+    imgSource: 'https://www.metinarslanturk.com/uploads/shoe.jpeg',
     title: 'Product Title',
     body: 'Here content'
   }

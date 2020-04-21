@@ -2,6 +2,6 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 const baseHref = '/';
-const apiBase = '/api/';
+const apiBase = '/shopeluska-api/';
 
 export {history, baseHref, apiBase};

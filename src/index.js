@@ -11,11 +11,11 @@ import configureStore from './config/configureStore';
 const store = configureStore();
 
 
-// Prevent deprecated in strictmode console warnings
+// Prevent deprecated in strictmode console warnings because of ant design's unupgraded components. Hopefully they will upgrade then this will be removed
 (() => {
   const oldLogError = console.error
   console.error = function(...args) {
-    if (typeof args[0] !== 'string' || args[0].indexOf('is deprecated in StrictMode') === -1) {
+    if (typeof args[0] !== 'string' || (args[0].indexOf('is deprecated in StrictMode') === -1 && args[0].indexOf('UNSAFE_componentWillReceiveProps in strict mode') === -1)) {
       oldLogError.apply(console, args)
     }
   }
