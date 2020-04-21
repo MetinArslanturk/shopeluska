@@ -14,6 +14,17 @@ export default (state = productsDefaultState, action) => {
                 ...state,
                 products: state.products.filter(({ _id }) => _id !== action.productId)
             };
+        case 'UPDATE_PRODUCT':
+            return {
+                ...state,
+                products: state.products.map((product) => {
+                    if (product._id === action.product._id) {
+                        return action.product;
+                    } else {
+                        return product;
+                    }
+                })
+            };
         case 'SET_PRODUCTS':
             return {
                 ...state,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startAddProduct } from '../../actions/products'
+import { startAddProduct, startUpdateProduct } from '../../actions/products'
 import { Form, Input, Modal, Select } from 'antd';
 
 const { Option } = Select;
@@ -19,7 +19,12 @@ export const AddUpdateProductModal = ({ isOpen, startAddProduct, startUpdateProd
                 // optional action
             });
         } else {
-            console.log('Update actions...')
+            values._id = productData._id;
+            startUpdateProduct(values).then(res => {
+                handleSave(res);
+            }).catch(err => {
+                // optional action
+            });
         }
 
     };
@@ -100,7 +105,7 @@ export const AddUpdateProductModal = ({ isOpen, startAddProduct, startUpdateProd
 
 const mapDispatchToProps = (dispatch) => ({
     startAddProduct: (productData) => dispatch(startAddProduct(productData)),
-    startUpdateProduct: (productData) => dispatch(undefined)
+    startUpdateProduct: (productData) => dispatch(startUpdateProduct(productData))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddUpdateProductModal)

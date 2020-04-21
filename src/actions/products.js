@@ -6,6 +6,11 @@ const addProduct = (data) => ({
     product: data
 });
 
+const updateProduct = (data) => ({
+    type: 'UPDATE_PRODUCT',
+    product: data
+});
+
 const setProducts = (products) => ({
     type: 'SET_PRODUCTS',
     products
@@ -26,6 +31,22 @@ export const startAddProduct = (data) => {
             return product;
         }).catch(err => {
             showErrorNotification('Error', 'Error occured while adding new product', 3);
+            return Promise.reject(err);
+        });
+
+    }
+};
+
+export const startUpdateProduct = (data) => {
+    return (dispatch) => {
+        destroyNotifications();
+        return productsService.updateProduct(data).then((res) => {
+            const product = res.data;
+            dispatch(updateProduct(product));
+            showSuccessNotification('Success', 'Product updated successfully.', 3);
+            return product;
+        }).catch(err => {
+            showErrorNotification('Error', 'Error occured while adding updating product', 3);
             return Promise.reject(err);
         });
 
