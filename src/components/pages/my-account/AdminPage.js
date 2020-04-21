@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {startDeleteProduct } from '../../actions/products';
-import { productColumns } from '../../helpers/productColumns';
-import ActionButton from '../ActionButton';
-import { deleteConfirm } from '../ConfirmPopup'
-import AddUpdateProductModal from '../AddUpdateProductModal';
+import {startDeleteProduct } from '../../../actions/products';
+import { productColumns } from '../../../helpers/productColumns';
+import ActionButton from '../../common-components/ActionButton';
+import { deleteConfirm } from '../../common-components/ConfirmPopup'
+import AddUpdateProductModal from '../../common-components/AddUpdateProductModal';
 import { Table } from 'antd';
 
 export class AdminPage extends React.Component {

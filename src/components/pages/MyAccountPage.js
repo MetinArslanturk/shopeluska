@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import MyOrdersPage from './my-account/MyOrdersPage';
 import MyProfilePage from './my-account/MyProfilePage';
 import AdminPage from './my-account/AdminPage';
-import { isAdmin } from '../selectors/auth';
+import { isAdmin } from '../../selectors/auth';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-export const MyAccount = ({ isAdmin }) => {
+export const MyAccountPage = ({ isAdmin }) => {
     const [selectedPage, setPage] = useState('my-profile');
 
     return (
@@ -40,4 +40,4 @@ const mapStateToProps = (state) => ({
     isAdmin: isAdmin(state.auth.user)
 })
 
-export default connect(mapStateToProps)(MyAccount);
+export default connect(mapStateToProps)(MyAccountPage);

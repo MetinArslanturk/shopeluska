@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startAddProduct } from '../actions/products'
+import { startAddProduct } from '../../actions/products'
 import { Form, Input, Modal, Select } from 'antd';
 
 const { Option } = Select;

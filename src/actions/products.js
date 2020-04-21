@@ -1,4 +1,4 @@
-import { showErrorNotification, destroyNotifications, showSuccessNotification } from '../components/Notification';
+import { showErrorNotification, destroyNotifications, showSuccessNotification } from '../components/common-components/Notification';
 import * as productsService from '../services/products';
 
 const addProduct = (data) => ({

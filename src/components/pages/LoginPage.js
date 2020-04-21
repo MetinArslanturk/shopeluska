@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { baseHref } from '../config/config';
-import { useMountEffect } from '../helpers/mounteffect';
-import { hideSidebar, showSidebar } from '../actions/layout';
-import { startLogin } from '../actions/auth';
-import { isAuthenticated } from '../selectors/auth';
+import { baseHref } from '../../config/config';
+import { useMountEffect } from '../../helpers/mounteffect';
+import { hideSidebar, showSidebar } from '../../actions/layout';
+import { startLogin } from '../../actions/auth';
+import { isAuthenticated } from '../../selectors/auth';
 import { Form, Input, Button } from 'antd';
 
 const layout = {

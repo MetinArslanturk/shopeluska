@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUserName, getEmail } from '../../selectors/auth';
-import { startUpdateMyProfile } from '../../actions/auth';
+import { getUserName, getEmail } from '../../../selectors/auth';
+import { startUpdateMyProfile } from '../../../actions/auth';
 import { Form, Input, Button } from 'antd';
 
 export class MyProfilePage extends React.Component {

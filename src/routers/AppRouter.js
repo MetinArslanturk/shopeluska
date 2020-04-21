@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
-import MainPage from '../components/MainPage';
-import MyAccount from '../components/MyAccount';
-import LoginPage from '../components/LoginPage';
+import MainPage from '../components/pages/MainPage';
+import MyAccountPage from '../components/pages/MyAccountPage';
+import LoginPage from '../components/pages/LoginPage';
 
 const AppRouter = (props) => {
     return (
@@ -12,7 +12,7 @@ const AppRouter = (props) => {
         <Switch>
             <PublicRoute path="/" component={MainPage} exact={true} sidebar={true}/>
             <PublicRoute path="/login" component={LoginPage} exact={true} sidebar={false}/>
-            <PrivateRoute path="/my-account" component={MyAccount} sidebar={true}/>
+            <PrivateRoute path="/my-account" component={MyAccountPage} sidebar={true}/>
         </Switch>
     );
 }

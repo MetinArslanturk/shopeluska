@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { baseHref } from '../config/config';
+import { baseHref } from '../../config/config';
 import { Layout } from 'antd';
 import { NavLink } from 'react-router-dom';
 const { Sider } = Layout;

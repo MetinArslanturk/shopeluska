@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import Footer from '../components/Footer';
+import Header from './layouts/Header';
+import Sidebar from './layouts/Sidebar';
+import Footer from './layouts/Footer';
 import { checkLogin } from '../actions/auth';
 import { startSetProducts } from '../actions/products';
 import { Layout } from 'antd';

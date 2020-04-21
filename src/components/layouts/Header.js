@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { history, baseHref } from '../config/config';
+import { history, baseHref } from '../../config/config';
 import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { BarsOutlined } from '@ant-design/icons';
-import { startLogout } from '../actions/auth';
-import {getUserName, isAuthenticated} from '../selectors/auth';
+import { startLogout } from '../../actions/auth';
+import {getUserName, isAuthenticated} from '../../selectors/auth';
 const { Search } = Input;
 
 const clickLogin = () => {
