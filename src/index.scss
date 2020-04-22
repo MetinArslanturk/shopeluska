@@ -199,6 +199,33 @@ code {
   text-align: right;
 }
 
+.card-price {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 24px;
+    color: #6dbf45;
+    flex-wrap: wrap;
+}
+
+.card-price-text {
+  margin-top: -5px;
+}
+.card-add-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-description {
+  height: 87px;
+  overflow: hidden;
+}
+
+.card-price-text-wrapper {
+  min-width: 90px;
+  text-align: right;
+}
+
 @media only screen and (max-width: 1400px) {
   .ant-layout-header {
     padding: 2px;
