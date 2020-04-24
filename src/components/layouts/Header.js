@@ -26,7 +26,7 @@ export const Header = ({ isAuthenticated, username, startLogout}) => {
                 <Row>
                     <Col span={4}>
                         <div className="brand-logo">
-                            <Link to={baseHref}><img alt="logo" className="logo-image" src="logo.png" /></Link>
+                            <Link to={baseHref}><img alt="logo" className="logo-image" src={baseHref + 'logo.png'} /></Link>
                         </div>
                     </Col>
                     <Col xs={4} sm={4} md={7} lg={8} xl={12}>

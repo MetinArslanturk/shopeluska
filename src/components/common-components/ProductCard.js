@@ -14,7 +14,7 @@ export const ProductCard = ({ product }) => {
         <>
             <Card
                 size="small"
-                onClick={() => { console.log('card click') }}
+                onClick={() => { history.push(baseHref + 'product/' + product._id) }}
                 hoverable
                 cover={<img alt="" className="picture-cover" src={product.imageUrl} />}
                 title={product.name}

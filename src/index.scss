@@ -216,6 +216,14 @@ code {
   justify-content: center;
 }
 
+.no-margin-top {
+  margin-top: 0
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
 .card-description {
   height: 87px;
   overflow: hidden;
@@ -224,6 +232,44 @@ code {
 .card-price-text-wrapper {
   min-width: 90px;
   text-align: right;
+}
+
+.product-page-head-image {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.product-content-wrapper {
+  padding: 30px;
+}
+
+.product-content-title {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.product-content-description {
+  max-height: 400px;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.quantity-and-action {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.see-all {
+  text-align: center;
+}
+
+.product-quantity {
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 1400px) {
