@@ -15,7 +15,7 @@ const store = configureStore();
 (() => {
   const oldLogError = console.error
   console.error = function(...args) {
-    if (typeof args[0] !== 'string' || (args[0].indexOf('is deprecated in StrictMode') === -1 && args[0].indexOf('UNSAFE_componentWillReceiveProps in strict mode') === -1)) {
+    if (typeof args[0] !== 'string' || (args[0].indexOf('is deprecated in StrictMode') === -1 && args[0].indexOf('UNSAFE_componentWillReceiveProps in strict mode') === -1 && args[0].indexOf('UNSAFE_componentWillMount in strict mode') === -1)) {
       oldLogError.apply(console, args)
     }
   }

@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
+import { PageTitle } from '../common-components/PageTitle';
 import { getProduct } from '../../selectors/products';
-import { Row, Col, Rate, Button, InputNumber } from 'antd';
+import { Row, Col, Rate, Button, InputNumber, Card } from 'antd';
 
+const tabList = [{ key: 'description', tab: 'Description'}, { key: 'shipping-options', tab: 'Shipping Options'}];
 
 export const ProductPage = ({ product }) => {
+    const [activeTab, setTab] = useState('description');
+
+    const handleSeeMore = () => {
+        setTab('description');
+    }
 
     return (
         <>
             {product ? (
                 <>
+                    <PageTitle title={'Shopeluska - ' + product.name} />
                     <Row style={{ border: '1px solid #ccc' }}>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <div>
@@ -24,7 +32,7 @@ export const ProductPage = ({ product }) => {
                                 <div className="product-content-description">
                                     {product.description.slice(0, 100)}
                                 </div>
-                                <div className="see-all"><Button type="dashed">-See all-</Button></div>
+                                <div className="see-all"><Button type="dashed" onClick={handleSeeMore}>-See all-</Button></div>
                                 <div className="card-price margin-top">
                                     <Rate disabled defaultValue={product.rate} />
                                     <div className="card-price-text-wrapper">
@@ -41,6 +49,26 @@ export const ProductPage = ({ product }) => {
                                 </div>
                             </div>
                         </Col>
+                    </Row>
+                    <Row style={{ border: '1px solid #ccc', borderTop:'none' }}>
+                        <Card
+                            style={{ width: '100%' }}
+                            tabList={tabList}
+                            activeTabKey={activeTab}
+                            onTabChange={setTab}
+                        >
+                            {activeTab === 'description' ? (
+                                <>
+                                <p>
+                                    {product.description}
+                                </p>
+                                </>
+                            ) : activeTab === 'shipping-options' ? (
+                                <>
+                                <p>Shipping Options will be here...</p>
+                                </>
+                            ) : <p></p>}
+                        </Card>
                     </Row>
                 </>
             ) : (

@@ -272,6 +272,13 @@ code {
   margin-bottom: 5px;
 }
 
+.description-in-table {
+  max-width: 422px;
+  max-height: 200px;
+  word-break: break-all;
+  overflow-y: auto;
+}
+
 @media only screen and (max-width: 1400px) {
   .ant-layout-header {
     padding: 2px;

@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const productColumns = [
     {
       title: 'Name',
@@ -5,7 +7,8 @@ export const productColumns = [
     },
     {
       title: 'Description',
-      dataIndex: 'description'
+      dataIndex: 'description',
+      render: text => <div className="description-in-table">{text}</div>,
     },
     {
         title: 'Price',

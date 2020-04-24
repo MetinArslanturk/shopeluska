@@ -2,12 +2,12 @@ import React from 'react';
 import { Button } from 'antd';
 
 const ActionButton = ({ type, text, onClickActionFunction, itemToArguments }) => {
-    const handleOnclick = () => {
+    const handleOnClick = () => {
         onClickActionFunction(itemToArguments);
     };
     return (
         <>
-            <Button type={type} className="action-button" onClick={handleOnclick}>{text}</Button>
+            <Button type={type} className="action-button" onClick={handleOnClick}>{text}</Button>
         </>
     );
 

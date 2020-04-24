@@ -6,10 +6,14 @@ import MainPage from '../components/pages/MainPage';
 import MyAccountPage from '../components/pages/MyAccountPage';
 import LoginPage from '../components/pages/LoginPage';
 import ProductPage from '../components/pages/ProductPage';
+import { Helmet } from 'react-helmet';
 
-const AppRouter = (props) => {
+const AppRouter = () => {
     return (
-
+        <>
+            <Helmet>
+                <title>Shopeluska</title>
+            </Helmet>
         <Switch>
             <PublicRoute path="/" component={MainPage} exact={true}/>
             <PublicRoute path="/login" component={LoginPage} exact={true}/>
@@ -17,6 +21,7 @@ const AppRouter = (props) => {
             <PrivateRoute path="/my-account" component={MyAccountPage} />
             <Redirect to="/404" />
         </Switch>
+        </>
     );
 }
 
