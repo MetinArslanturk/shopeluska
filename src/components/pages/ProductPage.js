@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { PageTitle } from '../common-components/PageTitle';
 import { getProduct } from '../../selectors/products';
+import ScrollIntoView from 'react-scroll-into-view';
 import { Row, Col, Rate, Button, InputNumber, Card } from 'antd';
 
-const tabList = [{ key: 'description', tab: 'Description'}, { key: 'shipping-options', tab: 'Shipping Options'}];
+const tabList = [{ key: 'description', tab: 'Description' }, { key: 'shipping-options', tab: 'Shipping Options' }];
 
 export const ProductPage = ({ product }) => {
     const [activeTab, setTab] = useState('description');
@@ -30,9 +31,11 @@ export const ProductPage = ({ product }) => {
                                     {product.name}
                                 </div>
                                 <div className="product-content-description">
-                                    {product.description.slice(0, 100)}
+                                    {product.description.slice(0, 500)}
                                 </div>
-                                <div className="see-all"><Button type="dashed" onClick={handleSeeMore}>-See all-</Button></div>
+                                <ScrollIntoView className="see-all" selector="#desc-panel">
+                                    <Button type="dashed" onClick={handleSeeMore}>-See all-</Button>
+                                </ScrollIntoView>
                                 <div className="card-price margin-top">
                                     <Rate disabled defaultValue={product.rate} />
                                     <div className="card-price-text-wrapper">
@@ -50,22 +53,23 @@ export const ProductPage = ({ product }) => {
                             </div>
                         </Col>
                     </Row>
-                    <Row style={{ border: '1px solid #ccc', borderTop:'none' }}>
+                    <Row style={{ border: '1px solid #ccc', borderTop: 'none' }}>
                         <Card
                             style={{ width: '100%' }}
                             tabList={tabList}
                             activeTabKey={activeTab}
                             onTabChange={setTab}
+                            id="desc-panel"
                         >
                             {activeTab === 'description' ? (
                                 <>
-                                <p>
-                                    {product.description}
-                                </p>
+                                    <p>
+                                        {product.description}
+                                    </p>
                                 </>
                             ) : activeTab === 'shipping-options' ? (
                                 <>
-                                <p>Shipping Options will be here...</p>
+                                    <p>Shipping Options will be here...</p>
                                 </>
                             ) : <p></p>}
                         </Card>

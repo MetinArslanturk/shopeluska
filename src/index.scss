@@ -251,7 +251,7 @@ code {
 }
 
 .product-content-description {
-  max-height: 400px;
+  max-height: 130px;
   word-break: break-all;
   overflow: hidden;
 }
@@ -277,6 +277,14 @@ code {
   max-height: 200px;
   word-break: break-all;
   overflow-y: auto;
+}
+
+.ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-nav .ant-tabs-tab:hover  {
+  color: #000000;
+}
+
+.ant-tabs-ink-bar {
+  background-color: #000000;
 }
 
 @media only screen and (max-width: 1400px) {
