@@ -19,7 +19,7 @@ export const ProductPage = ({ product }) => {
             {product ? (
                 <>
                     <PageTitle title={'Shopeluska - ' + product.name} />
-                    <Row style={{ border: '1px solid #ccc' }}>
+                    <Row>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <div>
                                 <img className="product-page-head-image" src={product.imageUrl} alt={product.name} />
@@ -53,7 +53,7 @@ export const ProductPage = ({ product }) => {
                             </div>
                         </Col>
                     </Row>
-                    <Row style={{ border: '1px solid #ccc', borderTop: 'none' }}>
+                    <Row>
                         <Card
                             style={{ width: '100%' }}
                             tabList={tabList}
