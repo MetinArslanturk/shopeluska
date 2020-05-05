@@ -4,7 +4,6 @@ import { Badge } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 export const ShoppingCartIcon = ({ cartItemCount }) => {
-    console.log('render');
     return (
 
         <div className="badge-wrapper">

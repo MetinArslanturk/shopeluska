@@ -7,7 +7,7 @@ export default (state = shoppingDefaultState, action) => {
     case 'ADD_TO_CART':
       return {
         ...state,
-        cartItems:[...state.cartItems, action.productId]
+        cartItems:[...state.cartItems, {productId: action.productId, quantity: action.quantity}]
       };
     default:
       return state;

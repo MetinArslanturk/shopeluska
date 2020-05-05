@@ -38,7 +38,7 @@ export const Header = ({ isAuthenticated, startLogout}) => {
                     <Col xs={4} sm={6} md={6} lg={6} xl={4}>
                         <div className="user-nav">
                         
-                        <ShoppingCartIcon />
+                        <Link to={baseHref + 'shopping-cart'}><ShoppingCartIcon /></Link>
                             {!isAuthenticated && (
                                 <Button type="primary" className="login-button" onClick={clickLogin}>Login</Button>
                             )}

@@ -11,7 +11,7 @@ export const ProductCard = ({ product, addToCart }) => {
     const handleAddToCard = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        addToCart(product._id);
+        addToCart(product._id, 1);
     }
 
     return (
@@ -41,7 +41,7 @@ export const ProductCard = ({ product, addToCart }) => {
     )
 }
 const mapDispatchToProps = (dispatch) => ({
-    addToCart: (productId) => dispatch(addToCart(productId))
+    addToCart: (productId, quantity) => dispatch(addToCart(productId, quantity))
 })
 export default connect(undefined, mapDispatchToProps)(ProductCard);
 

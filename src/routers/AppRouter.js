@@ -6,6 +6,7 @@ import MainPage from '../components/pages/MainPage';
 import MyAccountPage from '../components/pages/MyAccountPage';
 import LoginPage from '../components/pages/LoginPage';
 import ProductPage from '../components/pages/ProductPage';
+import ShoppingCart from '../components/pages/ShoppingCart';
 import { Helmet } from 'react-helmet';
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
             <PublicRoute path="/" component={MainPage} exact={true}/>
             <PublicRoute path="/login" component={LoginPage} exact={true}/>
             <PublicRoute path="/product/:id" component={ProductPage} exact={true}/>
+            <PublicRoute path="/shopping-cart" component={ShoppingCart} exact={true}/>
             <PrivateRoute path="/my-account" component={MyAccountPage} />
             <Redirect to="/404" />
         </Switch>
