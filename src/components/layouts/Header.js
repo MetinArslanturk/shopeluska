@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { history, baseHref } from '../../config/config';
-import { Drawer, Row, Col, Button, Input, Badge } from 'antd';
+import { Drawer, Row, Col, Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import { BarsOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { BarsOutlined } from '@ant-design/icons';
 import { startLogout } from '../../actions/auth';
 import {isAuthenticated} from '../../selectors/auth';
+import ShoppingCartIcon from '../common-components/ShoppingCartIcon';
 const { Search } = Input;
 
 const clickLogin = () => {
@@ -36,10 +37,8 @@ export const Header = ({ isAuthenticated, startLogout}) => {
                     </Col>
                     <Col xs={4} sm={6} md={6} lg={6} xl={4}>
                         <div className="user-nav">
-                        <Badge className="badge-text" count={10}>
-                        <ShoppingCartOutlined style={{ fontSize: '36px'}}/>
-                        </Badge>
                         
+                        <ShoppingCartIcon />
                             {!isAuthenticated && (
                                 <Button type="primary" className="login-button" onClick={clickLogin}>Login</Button>
                             )}

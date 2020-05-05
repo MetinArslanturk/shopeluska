@@ -34,9 +34,9 @@ const Sidebar = ({ showSidebar }) => {
                 collapsedWidth="0">
                 <nav className="nav">
                     <ul>
-                        {menuItems.map((item, indice) => {
+                        {menuItems.map((item) => {
                             return (
-                                <li key={indice}><NavLink activeClassName='active' exact={true} to={baseHref + item.link}>{item.content}</NavLink></li>
+                                <li key={item.content}><NavLink activeClassName='active' exact={true} to={baseHref + item.link}>{item.content}</NavLink></li>
                             )
                         })}
 

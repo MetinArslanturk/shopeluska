@@ -1,15 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { baseHref } from '../../config/config';
 import { Link } from 'react-router-dom';
 import { Card, Rate, Button } from 'antd';
+import { addToCart } from '../../actions/shopping';
 
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, addToCart }) => {
 
     const handleAddToCard = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        console.log('button click');
+        addToCart(product._id);
     }
 
     return (
@@ -38,6 +40,8 @@ export const ProductCard = ({ product }) => {
         </>
     )
 }
-
-export default React.memo(ProductCard);
+const mapDispatchToProps = (dispatch) => ({
+    addToCart: (productId) => dispatch(addToCart(productId))
+})
+export default connect(undefined, mapDispatchToProps)(ProductCard);
 
