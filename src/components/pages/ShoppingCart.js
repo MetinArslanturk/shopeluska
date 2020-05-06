@@ -1,19 +1,18 @@
 import React, { useMemo, useCallback } from 'react';
 import { connect } from 'react-redux';
 import ActionButton from '../common-components/ActionButton';
+import { removeFromCart } from '../../actions/shopping'
 import { Table } from 'antd';
 
 
 
 export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
 
-    const handleDelete = useCallback((record) => {
-        console.log(record);
-        // removeFromCart(id);
-    }, []);
+
+
+
 
     const cartItems = useMemo(() => {
-        console.log('Calculated');
         return items.map(item => {
             const product = allItems.find(product => product._id === item.productId);
             return {
@@ -25,7 +24,6 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
     }, [items, allItems]);
 
     const tableColumns = useMemo(() => {
-        console.log('cal 2');
         return [
             {
                 title: 'Product',
@@ -36,7 +34,8 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
                     </span>
                 ),
             },
-            { title: 'Quantity', dataIndex: 'quantity' },
+            {   title: 'Quantity', dataIndex: 'quantity' },
+            {   title: 'Price', dataIndex: 'price', render: (text, record) => (<div className="table-price">${record.product.price}</div>) },
             {
                 title: 'Actions',
                 dataIndex: 'action',
@@ -44,19 +43,30 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
                     <span>
                         <ActionButton
                             text="Delete"
-                            onClickActionFunction={handleDelete}
-                            itemToArguments={record}
+                            onClickActionFunction={removeFromCart}
+                            itemToArguments={record.product._id}
                         />
                     </span>
-                ),
+                )
             }
         ];
-    }, [handleDelete]);
+    }, [removeFromCart]);
+
+    const totalPrice = useMemo(() => {
+        let price = 0;
+        cartItems.forEach(item => price += (item.quantity * item.product.price));
+        return price;
+    }, [cartItems])
+
+    const footer = useCallback(
+        () => <div className="cart-total-price">Total price: <span className="table-price">${totalPrice}</span></div>,
+        [totalPrice]
+    );
 
 
     return (
         <>
-            <Table columns={tableColumns} dataSource={cartItems} />
+            <Table columns={tableColumns} dataSource={cartItems} footer={footer} />
         </>
     );
 }
@@ -66,4 +76,8 @@ const mapStateToProps = (state) => ({
     items: state.shopping.cartItems
 });
 
-export default connect(mapStateToProps)(ShoppingCart);
+const mapDispatchToProps = (dispatch) => ({
+    removeFromCart: (id) => dispatch(removeFromCart(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);

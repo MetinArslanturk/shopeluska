@@ -315,6 +315,19 @@ code {
   background-color: #000000;
 }
 
+.cart-total-price {
+  text-align: right;
+}
+
+.table-price {
+  color: #5fa23e;
+  font-size: 18px;
+}
+
+.ant-pagination-item-active {
+  border-color: #4b5258;
+}
+
 @keyframes rebound {
   0%   {margin-top: 0px;}
   20%  {margin-top: -18px;}

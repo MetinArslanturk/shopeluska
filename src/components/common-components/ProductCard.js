@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { baseHref } from '../../config/config';
 import { Link } from 'react-router-dom';
 import { Card, Rate, Button } from 'antd';
-import { addToCart } from '../../actions/shopping';
+import { startAddToCart } from '../../actions/shopping';
 
 
-export const ProductCard = ({ product, addToCart }) => {
+export const ProductCard = ({ product, startAddToCart }) => {
 
     const handleAddToCard = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        addToCart(product._id, 1);
+        startAddToCart(product._id, 1);
     }
 
     return (
@@ -41,7 +41,7 @@ export const ProductCard = ({ product, addToCart }) => {
     )
 }
 const mapDispatchToProps = (dispatch) => ({
-    addToCart: (productId, quantity) => dispatch(addToCart(productId, quantity))
+    startAddToCart: (productId, quantity) => dispatch(startAddToCart(productId, quantity))
 })
 export default connect(undefined, mapDispatchToProps)(ProductCard);
 
