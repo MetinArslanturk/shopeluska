@@ -1,27 +1,20 @@
 import React, { useMemo, useCallback } from 'react';
 import { connect } from 'react-redux';
 import ActionButton from '../common-components/ActionButton';
-import { removeFromCart } from '../../actions/shopping'
-import { Table } from 'antd';
+import { removeFromCart, editCartItem } from '../../actions/shopping'
+import { Table, Button, InputNumber  } from 'antd';
+import { useGetCartItemsAndTotalPrice } from '../../helpers/shoppingCart';
 
 
+export const ShoppingCart = ({ allItems, items, removeFromCart, editCartItem }) => {
 
-export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
+    const [cartItems, totalPrice] = useGetCartItemsAndTotalPrice(items, allItems);
 
-
-
-
-
-    const cartItems = useMemo(() => {
-        return items.map(item => {
-            const product = allItems.find(product => product._id === item.productId);
-            return {
-                product,
-                key: product._id,
-                quantity: item.quantity
-            }
-        });
-    }, [items, allItems]);
+    const quantityChange = useCallback((productId, quantity) => {
+        if (!isNaN(quantity)) {
+            editCartItem(productId, quantity);
+        }
+    }, [editCartItem]);
 
     const tableColumns = useMemo(() => {
         return [
@@ -32,10 +25,16 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
                     <span>
                         {record.product.name}
                     </span>
-                ),
+                )
             },
-            {   title: 'Quantity', dataIndex: 'quantity' },
-            {   title: 'Price', dataIndex: 'price', render: (text, record) => (<div className="table-price">${record.product.price}</div>) },
+            {
+                title: 'Quantity',
+                dataIndex: 'quantity',
+                render: (text, record) => (
+                    <InputNumber min={1} max={record.product.stock} defaultValue={record.quantity} onChange={(val) => quantityChange(record.product._id, val)} />
+                )
+            },
+            { title: 'Price', dataIndex: 'price', render: (text, record) => (<div className="table-price">${record.product.price}</div>) },
             {
                 title: 'Actions',
                 dataIndex: 'action',
@@ -50,13 +49,7 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
                 )
             }
         ];
-    }, [removeFromCart]);
-
-    const totalPrice = useMemo(() => {
-        let price = 0;
-        cartItems.forEach(item => price += (item.quantity * item.product.price));
-        return price;
-    }, [cartItems])
+    }, [removeFromCart, quantityChange]);
 
     const footer = useCallback(
         () => <div className="cart-total-price">Total price: <span className="table-price">${totalPrice}</span></div>,
@@ -67,6 +60,9 @@ export const ShoppingCart = ({ allItems, items, removeFromCart }) => {
     return (
         <>
             <Table columns={tableColumns} dataSource={cartItems} footer={footer} />
+            <div className="go-order">
+                <Button type="primary">Continue To Payment</Button>
+            </div>
         </>
     );
 }
@@ -77,7 +73,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    removeFromCart: (id) => dispatch(removeFromCart(id))
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+    editCartItem: (productId, quantity) => dispatch(editCartItem(productId, quantity))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);

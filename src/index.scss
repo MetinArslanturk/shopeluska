@@ -328,6 +328,12 @@ code {
   border-color: #4b5258;
 }
 
+.go-order {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
 @keyframes rebound {
   0%   {margin-top: 0px;}
   20%  {margin-top: -18px;}
