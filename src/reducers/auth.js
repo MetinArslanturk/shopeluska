@@ -1,5 +1,6 @@
 const authDefaultState = {
-    user: {uid:''}
+    user: {uid:''},
+    redirectUrl: ''
 };
 
 export default (state = authDefaultState, action) => {
@@ -19,6 +20,11 @@ export default (state = authDefaultState, action) => {
           ...state,
           user: {uid:''}
         };
+        case 'SET_LOGIN_REDIRECT_URL':
+          return {
+            ...state,
+            redirectUrl: action.redirectUrl
+          };
     default:
       return state;
   }

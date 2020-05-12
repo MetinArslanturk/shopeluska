@@ -7,6 +7,7 @@ import MyAccountPage from '../components/pages/MyAccountPage';
 import LoginPage from '../components/pages/LoginPage';
 import ProductPage from '../components/pages/ProductPage';
 import ShoppingCart from '../components/pages/ShoppingCart';
+import CompleteOrder from '../components/pages/CompleteOrder';
 import { Helmet } from 'react-helmet';
 
 const AppRouter = () => {
@@ -20,7 +21,8 @@ const AppRouter = () => {
             <PublicRoute path="/login" component={LoginPage} exact={true}/>
             <PublicRoute path="/product/:id" component={ProductPage} exact={true}/>
             <PublicRoute path="/shopping-cart" component={ShoppingCart} exact={true}/>
-            <PrivateRoute path="/my-account" component={MyAccountPage} />
+            <PrivateRoute path="/my-account" component={MyAccountPage} exact={true} />
+            <PrivateRoute path="/payment-step" component={CompleteOrder} redirectUrl={'payment-step'} exact={true} />
             <Redirect to="/404" />
         </Switch>
         </>

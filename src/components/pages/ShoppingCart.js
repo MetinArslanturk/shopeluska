@@ -1,11 +1,14 @@
 import React, { useMemo, useCallback } from 'react';
 import { connect } from 'react-redux';
 import ActionButton from '../common-components/ActionButton';
-import { removeFromCart, editCartItem } from '../../actions/shopping'
-import { Table, Button, InputNumber  } from 'antd';
+import { removeFromCart, editCartItem } from '../../actions/shopping';
+import { Table, Button, InputNumber } from 'antd';
 import { useGetCartItemsAndTotalPrice } from '../../helpers/shoppingCart';
+import { baseHref, history } from '../../config/config';
 
-
+const redirectPayment = () => {
+    history.push(baseHref + 'payment-step');
+}
 export const ShoppingCart = ({ allItems, items, removeFromCart, editCartItem }) => {
 
     const [cartItems, totalPrice] = useGetCartItemsAndTotalPrice(items, allItems);
@@ -61,7 +64,7 @@ export const ShoppingCart = ({ allItems, items, removeFromCart, editCartItem }) 
         <>
             <Table columns={tableColumns} dataSource={cartItems} footer={footer} />
             <div className="go-order">
-                <Button type="primary">Continue To Payment</Button>
+                <Button type="primary" onClick={redirectPayment}>Continue To Payment</Button>
             </div>
         </>
     );

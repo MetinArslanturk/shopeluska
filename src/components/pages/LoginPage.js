@@ -17,7 +17,7 @@ const tailLayout = {
 };
 
 
-export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectPath }) => {
+export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticated, redirectUrl }) => {
     useMountEffect(() => {
         hideSidebar();
         return () => {
@@ -35,7 +35,7 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
     return (
         <>
             {isAuthenticated ? (
-                <Redirect to={redirectPath ? redirectPath : baseHref} />
+                <Redirect to={redirectUrl ? redirectUrl : baseHref} />
             ) : (
                     <div className="login-wrapper">
                         <div className="login-form">
@@ -78,7 +78,8 @@ export const LoginPage = ({ hideSidebar, showSidebar, startLogin, isAuthenticate
 }
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: isAuthenticated(state.auth.user)
+    isAuthenticated: isAuthenticated(state.auth.user),
+    redirectUrl: state.auth.redirectUrl
 });
 
 const mapDispatchToProps = (dispatch) => ({

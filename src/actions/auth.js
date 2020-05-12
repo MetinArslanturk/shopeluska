@@ -6,6 +6,11 @@ const setLoggedIn = (user) => ({
     user: user
 });
 
+export const setLoginRedirectUrl = (redirectUrl) => ({
+    type: 'SET_LOGIN_REDIRECT_URL',
+    redirectUrl
+})
+
 const setLoggedOut = () => ({
     type: 'SET_LOG_OUT'
 });
