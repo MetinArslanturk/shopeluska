@@ -2,24 +2,24 @@ import React from 'react';
 
 export const productColumns = [
     {
-      title: 'Name',
-      dataIndex: 'name'
+        title: 'Name',
+        dataIndex: 'name',
     },
     {
-      title: 'Description',
-      dataIndex: 'description',
-      render: text => <div className="description-in-table">{text}</div>,
+        title: 'Description',
+        dataIndex: 'description',
+        render: (text) => <div className="description-in-table">{text}</div>,
     },
     {
         title: 'Price',
-        dataIndex: 'price'
+        dataIndex: 'price',
     },
     {
         title: 'Category',
-        dataIndex: 'category'
+        dataIndex: 'category',
     },
     {
-      title: 'Stock',
-      dataIndex: 'stock'
-    }
-  ];
+        title: 'Stock',
+        dataIndex: 'stock',
+    },
+];

@@ -1,5 +1,5 @@
 const productsDefaultState = {
-    products: []
+    products: [],
 };
 
 export default (state = productsDefaultState, action) => {
@@ -7,12 +7,14 @@ export default (state = productsDefaultState, action) => {
         case 'ADD_NEW_PRODUCT':
             return {
                 ...state,
-                products: [...state.products, action.product]
+                products: [...state.products, action.product],
             };
         case 'DELETE_PRODUCT':
             return {
                 ...state,
-                products: state.products.filter(({ _id }) => _id !== action.productId)
+                products: state.products.filter(
+                    ({ _id }) => _id !== action.productId
+                ),
             };
         case 'UPDATE_PRODUCT':
             return {
@@ -20,15 +22,14 @@ export default (state = productsDefaultState, action) => {
                 products: state.products.map((product) => {
                     if (product._id === action.product._id) {
                         return action.product;
-                    } else {
-                        return product;
                     }
-                })
+                    return product;
+                }),
             };
         case 'SET_PRODUCTS':
             return {
                 ...state,
-                products: action.products
+                products: action.products,
             };
         default:
             return state;

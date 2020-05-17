@@ -9,15 +9,14 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default () => {
     const store = createStore(
-      combineReducers({
-        layout: layoutReducer,
-        auth: authReducer,
-        products: productsReducer,
-        shopping: shoppingReducer
-      }),
-      composeEnhancers(applyMiddleware(thunk))
+        combineReducers({
+            layout: layoutReducer,
+            auth: authReducer,
+            products: productsReducer,
+            shopping: shoppingReducer,
+        }),
+        composeEnhancers(applyMiddleware(thunk))
     );
-  
+
     return store;
-  };
-  
+};
