@@ -89,15 +89,18 @@ export const ShoppingCart = ({
 
     return (
         <>
+            <h2>Shopping Cart</h2>
             <Table
                 columns={tableColumns}
                 dataSource={cartItems}
                 footer={footer}
             />
             <div className="go-order">
-                <Button type="primary" onClick={redirectPayment}>
-                    Continue To Payment
-                </Button>
+                {items.length > 0 && (
+                    <Button type="primary" onClick={redirectPayment}>
+                        Continue To Payment
+                    </Button>
+                )}
             </div>
         </>
     );

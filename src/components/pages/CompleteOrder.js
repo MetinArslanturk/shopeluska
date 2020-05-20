@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { Row, Col, Card, Form, Input, Button } from 'antd';
+import { baseHref } from '../../config/config';
 import { useGetCartItemsAndTotalPrice } from '../../helpers/shoppingCart';
 import { removeFromCart, editCartItem } from '../../actions/shopping';
 
@@ -22,6 +24,7 @@ export const CompleteOrder = ({ allItems, items }) => {
 
     return (
         <>
+            {items.length <= 0 && <Redirect to={`${baseHref}shopping-cart`} />}
             <Row className="reverse-wrap" gutter={[8, 16]}>
                 <Col xs={24} sm={24} md={24} lg={24} xl={12}>
                     <Card title="Personal Info And Payment">
@@ -47,7 +50,7 @@ export const CompleteOrder = ({ allItems, items }) => {
                             <Form.Item
                                 name="email"
                                 label="Email"
-                                rules={[{ type: 'email' }]}
+                                rules={[{ required: true, type: 'email' }]}
                             >
                                 <Input />
                             </Form.Item>
@@ -82,8 +85,12 @@ export const CompleteOrder = ({ allItems, items }) => {
                                     key={item.key}
                                 >
                                     <div>{item.product.name}</div>
-                                    <div>{item.product.name}</div>
-                                    <div>{item.product.name}</div>
+                                    <div>
+                                        {item.quantity} x{' '}
+                                        <span className="table-price">
+                                            ${item.product.price}
+                                        </span>
+                                    </div>
                                 </div>
                             );
                         })}
