@@ -3,7 +3,8 @@
 exports[`should render Footer 1`] = `
 <Fragment>
   <div>
-    Copyright to 
+    ©
+     
     <a
       href="http://www.metinarslanturk.com"
       rel="noopener noreferrer"
@@ -11,7 +12,15 @@ exports[`should render Footer 1`] = `
     >
       Metin Arslanturk
     </a>
-     You can check 
+     
+    <span
+      className="mail-text"
+    >
+      ( contact@metinarslanturk.com )
+    </span>
+     
+    --
+     
     <a
       href="https://github.com/MetinArslanturk/shopeluska"
       rel="noopener noreferrer"

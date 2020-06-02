@@ -20,7 +20,7 @@ exports[`should render header when authenticated 1`] = `
             <img
               alt="logo"
               className="logo-image"
-              src="logo.png"
+              src="/logo.png"
             />
           </Link>
         </div>
@@ -52,9 +52,14 @@ exports[`should render header when authenticated 1`] = `
         <div
           className="user-nav"
         >
+          <Link
+            to="/shopping-cart"
+          >
+            <Connect(ShoppingCartIcon) />
+          </Link>
           <Button
             block={false}
-            className="my-account-button"
+            className="my-account-button my-account"
             ghost={false}
             htmlType="button"
             loading={false}
@@ -130,7 +135,7 @@ exports[`should render header when non-authenticated 1`] = `
             <img
               alt="logo"
               className="logo-image"
-              src="logo.png"
+              src="/logo.png"
             />
           </Link>
         </div>
@@ -162,6 +167,11 @@ exports[`should render header when non-authenticated 1`] = `
         <div
           className="user-nav"
         >
+          <Link
+            to="/shopping-cart"
+          >
+            <Connect(ShoppingCartIcon) />
+          </Link>
           <Button
             block={false}
             className="login-button"
