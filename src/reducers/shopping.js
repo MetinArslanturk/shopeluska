@@ -1,5 +1,6 @@
 const shoppingDefaultState = {
     cartItems: [],
+    orders: [],
 };
 
 export default (state = shoppingDefaultState, action) => {
@@ -30,6 +31,16 @@ export default (state = shoppingDefaultState, action) => {
                 cartItems: state.cartItems.filter(
                     (item) => item.productId !== action.productId
                 ),
+            };
+        case 'RESET_CART':
+            return {
+                ...state,
+                cartItems: [],
+            };
+        case 'SET_ORDERS':
+            return {
+                ...state,
+                orders: action.orders,
             };
         default:
             return state;

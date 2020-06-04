@@ -364,6 +364,20 @@ code {
   width: 50px;
 }
 
+.success-payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.success-payment-text {
+  display: flex;
+  font-size: 24px;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 @keyframes rebound {
   0%   {margin-top: 0px;}
   20%  {margin-top: -18px;}
