@@ -1,7 +1,7 @@
 export const showSidebar = () => ({
-    type: 'SHOW_SIDEBAR'
+    type: 'SHOW_SIDEBAR',
 });
 
 export const hideSidebar = () => ({
-    type: 'HIDE_SIDEBAR'
+    type: 'HIDE_SIDEBAR',
 });

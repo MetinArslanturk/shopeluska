@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Form, Input, Button } from 'antd';
 import { getUserName, getEmail } from '../../../selectors/auth';
 import { startUpdateMyProfile } from '../../../actions/auth';
-import { Form, Input, Button } from 'antd';
 
 export class MyProfilePage extends React.Component {
-
     layout = {
         labelCol: {
             span: 8,
@@ -14,6 +13,7 @@ export class MyProfilePage extends React.Component {
             span: 16,
         },
     };
+
     tailLayout = {
         wrapperCol: {
             offset: 8,
@@ -21,10 +21,9 @@ export class MyProfilePage extends React.Component {
         },
     };
 
-    onFinish = values => {
-        this.props.startUpdateMyProfile(values);        
+    onFinish = (values) => {
+        this.props.startUpdateMyProfile(values);
     };
-
 
     render() {
         return (
@@ -33,30 +32,21 @@ export class MyProfilePage extends React.Component {
                     <Form
                         {...this.layout}
                         name="basic"
-                        initialValues={{username: this.props.username, email: this.props.email}}
+                        initialValues={{
+                            username: this.props.username,
+                            email: this.props.email,
+                        }}
                         onFinish={this.onFinish}
                     >
-                        <Form.Item
-                            label="Username"
-                            name="username"
-
-                        >
+                        <Form.Item label="Username" name="username">
                             <Input />
                         </Form.Item>
 
-                        <Form.Item
-                            label="Password"
-                            name="password"
-
-                        >
+                        <Form.Item label="Password" name="password">
                             <Input.Password />
                         </Form.Item>
 
-                        <Form.Item
-                            label="Email"
-                            name="email"
-
-                        >
+                        <Form.Item label="Email" name="email">
                             <Input />
                         </Form.Item>
 
@@ -68,17 +58,17 @@ export class MyProfilePage extends React.Component {
                     </Form>
                 </div>
             </>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => ({
     username: getUserName(state.auth.user),
-    email: getEmail(state.auth.user)
+    email: getEmail(state.auth.user),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    startUpdateMyProfile: (values) => dispatch(startUpdateMyProfile(values))
-})
+    startUpdateMyProfile: (values) => dispatch(startUpdateMyProfile(values)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyProfilePage);

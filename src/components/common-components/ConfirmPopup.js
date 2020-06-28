@@ -1,4 +1,5 @@
 import { Modal } from 'antd';
+
 const { confirm } = Modal;
 
 export const deleteConfirm = (onOkCallback, onOkArgument) => {
@@ -6,8 +7,8 @@ export const deleteConfirm = (onOkCallback, onOkArgument) => {
         title: 'Do you want to delete these item?',
         content: 'Items will be removed permanently.',
         onOk: () => {
-          onOkCallback(onOkArgument);
+            onOkCallback(onOkArgument);
         },
         onCancel() {},
-      });
-}
+    });
+};

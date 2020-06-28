@@ -13,4 +13,3 @@ export const getEmail = (user) => {
 export const isAdmin = (user) => {
     return !!user.isA;
 };
-
