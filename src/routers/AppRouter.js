@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { baseHref } from '../config/config';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import MainPage from '../components/pages/MainPage';
@@ -19,40 +20,44 @@ const AppRouter = () => {
                 <title>Shopeluska</title>
             </Helmet>
             <Switch>
-                <PublicRoute path="/" component={MainPage} exact />
-                <PublicRoute path="/login" component={LoginPage} exact />
+                <PublicRoute path={baseHref} component={MainPage} exact />
                 <PublicRoute
-                    path="/product/:id"
+                    path={`${baseHref}login`}
+                    component={LoginPage}
+                    exact
+                />
+                <PublicRoute
+                    path={`${baseHref}product/:id`}
                     component={ProductPage}
                     exact
                 />
                 <PublicRoute
-                    path="/shopping-cart"
+                    path={`${baseHref}shopping-cart`}
                     component={ShoppingCart}
                     exact
                 />
                 <PublicRoute
-                    path="/category/:catName"
+                    path={`${baseHref}category/:catName`}
                     component={ShowProducts}
                     exact
                 />
                 <PublicRoute
-                    path="/search"
+                    path={`${baseHref}search`}
                     component={SearchProducts}
                     exact
                 />
                 <PrivateRoute
-                    path="/my-account"
+                    path={`${baseHref}my-account`}
                     component={MyAccountPage}
                     exact
                 />
                 <PrivateRoute
-                    path="/payment-step"
+                    path={`${baseHref}payment-step`}
                     component={CompleteOrder}
                     redirectUrl="payment-step"
                     exact
                 />
-                <Redirect to="/404" />
+                <Redirect to={`${baseHref}404`} />
             </Switch>
         </>
     );
