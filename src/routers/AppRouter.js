@@ -9,6 +9,8 @@ import LoginPage from '../components/pages/LoginPage';
 import ProductPage from '../components/pages/ProductPage';
 import ShoppingCart from '../components/pages/ShoppingCart';
 import CompleteOrder from '../components/pages/CompleteOrder';
+import ShowProducts from '../components/pages/ShowProducts';
+import SearchProducts from '../components/pages/SearchProducts';
 
 const AppRouter = () => {
     return (
@@ -27,6 +29,16 @@ const AppRouter = () => {
                 <PublicRoute
                     path="/shopping-cart"
                     component={ShoppingCart}
+                    exact
+                />
+                <PublicRoute
+                    path="/category/:catName"
+                    component={ShowProducts}
+                    exact
+                />
+                <PublicRoute
+                    path="/search"
+                    component={SearchProducts}
                     exact
                 />
                 <PrivateRoute

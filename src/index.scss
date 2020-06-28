@@ -377,6 +377,10 @@ code {
   align-items: center;
 }
 
+.capitalize-text {
+  text-transform: capitalize;
+}
+
 
 @keyframes rebound {
   0%   {margin-top: 0px;}

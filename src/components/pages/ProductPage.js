@@ -6,14 +6,20 @@ import ScrollIntoView from 'react-scroll-into-view';
 import { Row, Col, Rate, Button, InputNumber, Card } from 'antd';
 import { PageTitle } from '../common-components/PageTitle';
 import { getProduct } from '../../selectors/products';
+import { startAddToCart } from '../../actions/shopping';
 
 const tabList = [
     { key: 'description', tab: 'Description' },
     { key: 'shipping-options', tab: 'Shipping Options' },
 ];
 
-export const ProductPage = ({ product }) => {
+export const ProductPage = ({ product, addToCart }) => {
     const [activeTab, setTab] = useState('description');
+    const [quantity, setQuantity] = useState(1);
+
+    const handleAddToCard = (e) => {
+        addToCart(product._id, quantity);
+    };
 
     const handleSeeMore = () => {
         setTab('description');
@@ -71,10 +77,11 @@ export const ProductPage = ({ product }) => {
                                             min={1}
                                             max={product.stock}
                                             defaultValue={1}
+                                            onChange={setQuantity}
                                         />
                                     </div>
                                     <div className="card-add-button no-margin-top">
-                                        <Button>Add To Card</Button>
+                                        <Button onClick={handleAddToCard}>Add To Card</Button>
                                     </div>
                                 </div>
                             </div>
@@ -111,9 +118,16 @@ export const ProductPage = ({ product }) => {
 
 ProductPage.propTypes = {
     product: PropTypes.any,
+    addToCart: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({
     product: getProduct(ownProps.match.params.id, state.products.products),
 });
-export default connect(mapStateToProps)(ProductPage);
+
+const mapDispatchToProps = (dispatch) => ({
+    addToCart: (productId, quantity) =>
+        dispatch(startAddToCart(productId, quantity)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

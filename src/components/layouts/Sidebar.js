@@ -4,28 +4,11 @@ import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { baseHref } from '../../config/config';
+import { menuItems  } from "../../helpers/menuItems";
 
 const { Sider } = Layout;
 
 const Sidebar = ({ showSidebar }) => {
-    const menuItems = [
-        {
-            content: 'Homepage',
-            link: '',
-        },
-        {
-            content: 'Clothing',
-            link: 'clothing',
-        },
-        {
-            content: 'Shoes',
-            link: 'shoes',
-        },
-        {
-            content: 'Accessories',
-            link: 'accessories',
-        },
-    ];
 
     return (
         <>
