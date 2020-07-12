@@ -43,3 +43,11 @@ test('should trigger history push when authenticated and click my account', () =
 
     expect(history.push).toHaveBeenLastCalledWith(`${baseHref}my-account`);
 });
+
+test('should trigger pushing history when search', () => {
+    const startLogout = jest.fn();
+    const wrapper = shallow(<Header isAuth logout={startLogout} />);
+    wrapper.find('.search-c').prop('onSearch')('test');
+
+    expect(history.push).toHaveBeenLastCalledWith(`${baseHref}search?key=test`);
+});

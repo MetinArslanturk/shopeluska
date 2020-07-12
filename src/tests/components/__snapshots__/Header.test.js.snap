@@ -15,12 +15,12 @@ exports[`should render header when authenticated 1`] = `
           className="brand-logo"
         >
           <Link
-            to="/"
+            to="/shopeluska/"
           >
             <img
               alt="logo"
               className="logo-image"
-              src="/logo.png"
+              src="/shopeluska/logo.png"
             />
           </Link>
         </div>
@@ -36,6 +36,7 @@ exports[`should render header when authenticated 1`] = `
           className="search-box"
         >
           <Search
+            className="search-c"
             enterButton={true}
             onSearch={[Function]}
             placeholder="input search text"
@@ -53,7 +54,7 @@ exports[`should render header when authenticated 1`] = `
           className="user-nav"
         >
           <Link
-            to="/shopping-cart"
+            to="/shopeluska/shopping-cart"
           >
             <Connect(ShoppingCartIcon) />
           </Link>
@@ -102,15 +103,52 @@ exports[`should render header when authenticated 1`] = `
     title="Shopeluska Navigation"
     visible={false}
   >
-    <p>
-      Some contents...
-    </p>
-    <p>
-      Some contents...
-    </p>
-    <p>
-      Some contents...
-    </p>
+    <ul>
+      <li
+        key="Homepage"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/"
+        >
+          Homepage
+        </NavLink>
+      </li>
+      <li
+        key="Clothing"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/clothing"
+        >
+          Clothing
+        </NavLink>
+      </li>
+      <li
+        key="Shoes"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/shoes"
+        >
+          Shoes
+        </NavLink>
+      </li>
+      <li
+        key="Accessories"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/accessories"
+        >
+          Accessories
+        </NavLink>
+      </li>
+    </ul>
   </withConfigConsumer(Drawer)>
 </Fragment>
 `;
@@ -130,12 +168,12 @@ exports[`should render header when non-authenticated 1`] = `
           className="brand-logo"
         >
           <Link
-            to="/"
+            to="/shopeluska/"
           >
             <img
               alt="logo"
               className="logo-image"
-              src="/logo.png"
+              src="/shopeluska/logo.png"
             />
           </Link>
         </div>
@@ -151,6 +189,7 @@ exports[`should render header when non-authenticated 1`] = `
           className="search-box"
         >
           <Search
+            className="search-c"
             enterButton={true}
             onSearch={[Function]}
             placeholder="input search text"
@@ -168,7 +207,7 @@ exports[`should render header when non-authenticated 1`] = `
           className="user-nav"
         >
           <Link
-            to="/shopping-cart"
+            to="/shopeluska/shopping-cart"
           >
             <Connect(ShoppingCartIcon) />
           </Link>
@@ -207,15 +246,52 @@ exports[`should render header when non-authenticated 1`] = `
     title="Shopeluska Navigation"
     visible={false}
   >
-    <p>
-      Some contents...
-    </p>
-    <p>
-      Some contents...
-    </p>
-    <p>
-      Some contents...
-    </p>
+    <ul>
+      <li
+        key="Homepage"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/"
+        >
+          Homepage
+        </NavLink>
+      </li>
+      <li
+        key="Clothing"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/clothing"
+        >
+          Clothing
+        </NavLink>
+      </li>
+      <li
+        key="Shoes"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/shoes"
+        >
+          Shoes
+        </NavLink>
+      </li>
+      <li
+        key="Accessories"
+      >
+        <NavLink
+          activeClassName="active"
+          exact={true}
+          to="/shopeluska/category/accessories"
+        >
+          Accessories
+        </NavLink>
+      </li>
+    </ul>
   </withConfigConsumer(Drawer)>
 </Fragment>
 `;

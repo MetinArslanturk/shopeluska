@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Sidebar 1`] = `
+<Fragment>
+  <Sider
+    breakpoint="lg"
+    collapsedWidth="0"
+    width={230}
+  >
+    <nav
+      className="nav"
+    >
+      <ul>
+        <li
+          key="Homepage"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/shopeluska/"
+          >
+            Homepage
+          </NavLink>
+        </li>
+        <li
+          key="Clothing"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/shopeluska/category/clothing"
+          >
+            Clothing
+          </NavLink>
+        </li>
+        <li
+          key="Shoes"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/shopeluska/category/shoes"
+          >
+            Shoes
+          </NavLink>
+        </li>
+        <li
+          key="Accessories"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/shopeluska/category/accessories"
+          >
+            Accessories
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  </Sider>
+</Fragment>
+`;

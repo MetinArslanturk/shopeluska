@@ -21,7 +21,7 @@ const Footer = () => {
                     target="_blank"
                     href="https://github.com/MetinArslanturk/shopeluska"
                 >
-                    GitHub of This Project
+                    GitHub of Project
                 </a>
             </div>
         </>

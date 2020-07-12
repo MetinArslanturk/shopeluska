@@ -3,7 +3,7 @@
 exports[`should redirect when authenticated 1`] = `
 <Fragment>
   <Redirect
-    to="/"
+    to="/shopeluska/"
   />
 </Fragment>
 `;
