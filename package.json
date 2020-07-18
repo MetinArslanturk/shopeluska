@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --testURL=http://localhost:8081",
+    "test": "react-scripts test --testURL=http://localhost:8081 --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
