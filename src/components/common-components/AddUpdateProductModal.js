@@ -71,7 +71,12 @@ export const AddUpdateProductModal = ({
                     },
                 }}
             >
-                <Form name="basic" form={form} onFinish={onFinish}>
+                <Form
+                    className="main-form"
+                    name="basic"
+                    form={form}
+                    onFinish={onFinish}
+                >
                     <Form.Item label="Name" name="name">
                         <Input />
                     </Form.Item>

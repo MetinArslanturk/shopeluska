@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    maskTransitionName="fade"
+    okButtonProps={
+      Object {
+        "onClick": [Function],
+      }
+    }
+    okType="primary"
+    title="Add Product"
+    transitionName="zoom"
+    visible={true}
+    width={520}
+  >
+    <ForwardRef(InternalForm)
+      className="main-form"
+      form={
+        Object {
+          "__INTERNAL__": Object {},
+          "getFieldError": [Function],
+          "getFieldValue": [Function],
+          "getFieldsError": [Function],
+          "getFieldsValue": [Function],
+          "getInternalHooks": [Function],
+          "isFieldTouched": [Function],
+          "isFieldValidating": [Function],
+          "isFieldsTouched": [Function],
+          "isFieldsValidating": [Function],
+          "resetFields": [Function],
+          "scrollToField": [Function],
+          "setFields": [Function],
+          "setFieldsValue": [Function],
+          "submit": [Function],
+          "validateFields": [Function],
+        }
+      }
+      name="basic"
+      onFinish={[Function]}
+    >
+      <FormItem
+        label="Name"
+        name="name"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+      <FormItem
+        label="Description"
+        name="description"
+      >
+        <TextArea
+          rows={4}
+        />
+      </FormItem>
+      <FormItem
+        hasFeedback={true}
+        label="Category"
+        name="category"
+      >
+        <Select
+          bordered={true}
+          choiceTransitionName="zoom"
+          placeholder="Please select category"
+          removeIcon={true}
+          transitionName="slide-up"
+        >
+          <Option
+            value="clothing"
+          >
+            Clothing
+          </Option>
+          <Option
+            value="shoes"
+          >
+            Shoes
+          </Option>
+          <Option
+            value="accessories"
+          >
+            Accessories
+          </Option>
+        </Select>
+      </FormItem>
+      <FormItem
+        label="Price"
+        name="price"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+      <FormItem
+        label="Stock"
+        name="stock"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+      <FormItem
+        label="Image Url"
+        name="imageUrl"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+    </ForwardRef(InternalForm)>
+  </Modal>
+</Fragment>
+`;

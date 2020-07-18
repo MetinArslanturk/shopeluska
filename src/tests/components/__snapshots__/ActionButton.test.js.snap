@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <Button
+    block={false}
+    className="action-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  />
+</Fragment>
+`;

@@ -6,7 +6,7 @@ readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
 function myExec() {
-    const child = exec('npm test', ['test']);
+    const child = exec('npm test');
 
     child.stderr.on('data', function (data) {
         console.log(`${data.toString()}`);
@@ -29,7 +29,7 @@ function startTests() {
 }
 
 process.stdin.on('keypress', (str, key) => {
-    if (str === 'h') {
+    if (str === 'a') {
         startTests();
     }
 
