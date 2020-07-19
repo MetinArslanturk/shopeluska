@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <Table
+    columns={
+      Array [
+        Object {
+          "dataIndex": "productNames",
+          "key": "productNames",
+          "title": "Products",
+        },
+        Object {
+          "dataIndex": "createdAt",
+          "key": "createdAt",
+          "render": [Function],
+          "title": "Date",
+        },
+        Object {
+          "dataIndex": "totalPrice",
+          "key": "totalPrice",
+          "title": "Total Price",
+        },
+      ]
+    }
+    dataSource={
+      Array [
+        Object {
+          "createdAt": 10000,
+          "key": 10000,
+          "productNames": "prod name",
+          "totalPrice": NaN,
+        },
+      ]
+    }
+    rowKey="key"
+  />
+</Fragment>
+`;

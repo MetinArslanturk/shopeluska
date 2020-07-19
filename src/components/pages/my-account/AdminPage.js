@@ -31,6 +31,7 @@ export class AdminPage extends React.Component {
 
                     <ActionButton
                         text="Delete"
+                        id="delete-button"
                         onClickActionFunction={this.handleDelete}
                         itemToArguments={record}
                     />

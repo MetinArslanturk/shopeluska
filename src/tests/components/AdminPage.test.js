@@ -25,3 +25,16 @@ test('should render', () => {
     const wrapper = shallow(<AdminPage products={products} />);
     expect(wrapper).toMatchSnapshot();
 });
+
+test('should start delete product', () => {
+    const startDeleteProduct = jest.fn();
+    const wrapper = shallow(
+        <AdminPage
+            startDeleteProduct={startDeleteProduct}
+            products={products}
+        />
+    );
+    const instance = wrapper.instance();
+    instance.handleDeleteConfirm('testp');
+    expect(startDeleteProduct).toHaveBeenCalledWith('testp');
+});
