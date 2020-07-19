@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <h2>
+    Manage Products
+  </h2>
+   
+  <br />
+  <div
+    className="align-to-right"
+  >
+    <Memo(ActionButton)
+      onClickActionFunction={[Function]}
+      text="Add New Product"
+      type="primary"
+    />
+  </div>
+  <Connect(AddUpdateProductModal)
+    handleClose={[Function]}
+    handleSave={[Function]}
+    isOpen={false}
+    isUpdate={false}
+    productData={Object {}}
+  />
+  <Table
+    columns={
+      Array [
+        Object {
+          "dataIndex": "name",
+          "title": "Name",
+        },
+        Object {
+          "dataIndex": "description",
+          "render": [Function],
+          "title": "Description",
+        },
+        Object {
+          "dataIndex": "price",
+          "title": "Price",
+        },
+        Object {
+          "dataIndex": "category",
+          "title": "Category",
+        },
+        Object {
+          "dataIndex": "stock",
+          "title": "Stock",
+        },
+        Object {
+          "dataIndex": "action",
+          "render": [Function],
+          "title": "Actions",
+        },
+      ]
+    }
+    dataSource={
+      Array [
+        Object {
+          "description": "Desc of one",
+          "id": "test1",
+          "key": "test1",
+          "name": "Test of one",
+          "price": 20.51,
+          "stock": 5,
+        },
+        Object {
+          "description": "Desc of two",
+          "id": "test2",
+          "key": "test2",
+          "name": "Test of two",
+          "price": 10.51,
+          "stock": 5,
+        },
+      ]
+    }
+    rowKey="key"
+  />
+</Fragment>
+`;

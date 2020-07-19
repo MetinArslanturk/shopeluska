@@ -10,10 +10,14 @@ const { Title } = Typography;
 class ShowProductsPage extends React.Component {
     render() {
         const { catName } = this.props.match.params;
-        const products = this.props.products.filter(product => product.category === catName);
+        const products = this.props.products.filter(
+            (product) => product.category === catName
+        );
         return (
             <div className="App">
-                <Title level={3}><span className="capitalize-text">{catName}</span> Products</Title>
+                <Title level={3}>
+                    <span className="capitalize-text">{catName}</span> Products
+                </Title>
                 <ListProductCards products={products} />
             </div>
         );

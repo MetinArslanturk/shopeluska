@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Form, Input, Button } from 'antd';
 import { getUserName, getEmail } from '../../../selectors/auth';
 import { startUpdateMyProfile } from '../../../actions/auth';
@@ -22,10 +23,13 @@ export class MyProfilePage extends React.Component {
     };
 
     onFinish = (values) => {
-        this.props.startUpdateMyProfile(values);
+        // eslint-disable-next-line no-shadow
+        const { startUpdateMyProfile } = this.props;
+        startUpdateMyProfile(values);
     };
 
     render() {
+        const { username, email } = this.props;
         return (
             <>
                 <div className="login-wrapper">
@@ -33,8 +37,8 @@ export class MyProfilePage extends React.Component {
                         {...this.layout}
                         name="basic"
                         initialValues={{
-                            username: this.props.username,
-                            email: this.props.email,
+                            username,
+                            email,
                         }}
                         onFinish={this.onFinish}
                     >
@@ -61,6 +65,12 @@ export class MyProfilePage extends React.Component {
         );
     }
 }
+
+MyProfilePage.propTypes = {
+    startUpdateMyProfile: PropTypes.func,
+    username: PropTypes.string,
+    email: PropTypes.string,
+};
 
 const mapStateToProps = (state) => ({
     username: getUserName(state.auth.user),

@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { Layout } from 'antd';
 import Header from './layouts/Header';
 import Sidebar from './layouts/Sidebar';
@@ -11,38 +10,29 @@ import AppRouter from '../routers/AppRouter';
 
 const { Header: LayoutHeader, Footer: LayoutFooter, Content } = Layout;
 
-class App extends React.Component {
-    componentDidMount() {
-        /* eslint-disable react/destructuring-assignment */
-        this.props.dispatch(startSetProducts());
-        this.props.dispatch(checkLogin());
-        /* eslint-enable react/destructuring-assignment */
-    }
+const App = () => {
+    const dispatch = useDispatch();
+    dispatch(startSetProducts());
+    dispatch(checkLogin());
 
-    render() {
-        return (
-            <>
+    return (
+        <>
+            <Layout>
+                <LayoutHeader>
+                    <Header />
+                </LayoutHeader>
                 <Layout>
-                    <LayoutHeader>
-                        <Header />
-                    </LayoutHeader>
-                    <Layout>
-                        <Sidebar />
-                        <Content>
-                            <AppRouter />
-                        </Content>
-                    </Layout>
-                    <LayoutFooter>
-                        <Footer />
-                    </LayoutFooter>
+                    <Sidebar />
+                    <Content>
+                        <AppRouter />
+                    </Content>
                 </Layout>
-            </>
-        );
-    }
-}
-
-App.propTypes = {
-    dispatch: PropTypes.func,
+                <LayoutFooter>
+                    <Footer />
+                </LayoutFooter>
+            </Layout>
+        </>
+    );
 };
 
-export default connect(undefined)(App);
+export default App;

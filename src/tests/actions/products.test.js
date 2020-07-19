@@ -14,14 +14,14 @@ const defaultProductsState = {
 };
 const createMockStore = configureMockStore([thunk]);
 
+let newAddedProductId;
+
 test('should set products', (done) => {
     const store = createMockStore(defaultProductsState);
     store.dispatch(startSetProducts()).then(() => {
         const actions = store.getActions();
         expect(actions[0].type).toEqual('SET_PRODUCTS');
-        expect(
-            actions[0].products.some((elm) => elm.name === 'Test3 Product')
-        ).toEqual(true);
+        expect(actions[0].products.length).toBeGreaterThanOrEqual(1);
         done();
     });
 });
@@ -37,7 +37,8 @@ test('should start add product', (done) => {
         category: 'shoes',
         imageUrl: '',
     };
-    store.dispatch(startAddProduct(newProduct)).then(() => {
+    store.dispatch(startAddProduct(newProduct)).then((res) => {
+        newAddedProductId = res._id;
         const actions = store.getActions();
         expect(actions[0]).toEqual({
             type: 'ADD_NEW_PRODUCT',
@@ -69,12 +70,12 @@ test('should start update product', (done) => {
 
 test('should start delete product', (done) => {
     const store = createMockStore(defaultProductsState);
-    const targetProductId = '5db6b24830f133b65dbbe458';
-
-    store.dispatch(startDeleteProduct(targetProductId)).then(() => {
-        const actions = store.getActions();
-        expect(actions[0].type).toEqual('DELETE_PRODUCT');
-        expect(actions[0].productId).toEqual(targetProductId);
+    store.dispatch(startDeleteProduct(newAddedProductId)).then(() => {
+        if (newAddedProductId) {
+            const actions = store.getActions();
+            expect(actions[0].type).toEqual('DELETE_PRODUCT');
+            expect(actions[0].productId).toEqual(newAddedProductId);
+        }
         done();
     });
 });
