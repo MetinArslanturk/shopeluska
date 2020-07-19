@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <Row
+    gutter={
+      Array [
+        20,
+        15,
+      ]
+    }
+  >
+    <Col
+      key="test1"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Connect(ProductCard)
+        product={
+          Object {
+            "description": "Desc of one",
+            "id": "test1",
+            "key": "test1",
+            "name": "Test of one",
+            "price": 20.51,
+            "stock": 5,
+          }
+        }
+      />
+    </Col>
+    <Col
+      key="test2"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Connect(ProductCard)
+        product={
+          Object {
+            "description": "Desc of two",
+            "id": "test2",
+            "key": "test2",
+            "name": "Test of two",
+            "price": 10.51,
+            "stock": 5,
+          }
+        }
+      />
+    </Col>
+  </Row>
+</Fragment>
+`;
+
+exports[`should render when products empty 1`] = `
+<Fragment>
+  <Row
+    gutter={
+      Array [
+        20,
+        15,
+      ]
+    }
+  >
+    <Col
+      key="0"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="1"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="2"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="3"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="4"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="5"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="6"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="7"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="8"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="9"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="10"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+    <Col
+      key="11"
+      lg={12}
+      md={12}
+      sm={24}
+      xl={8}
+      xs={24}
+      xxl={6}
+    >
+      <Memo(LoadingCard) />
+    </Col>
+  </Row>
+</Fragment>
+`;

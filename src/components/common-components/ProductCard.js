@@ -43,7 +43,12 @@ export const ProductCard = ({ product, addToCart }) => {
                         </div>
                     </div>
                     <div className="card-add-button">
-                        <Button onClick={handleAddToCard}>Add To Card</Button>
+                        <Button
+                            className="card-add-btn"
+                            onClick={handleAddToCard}
+                        >
+                            Add To Card
+                        </Button>
                     </div>
                 </Card>
             </Link>

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <Link
+    to="/shopeluska/product/testproduct1"
+  >
+    <Card
+      bordered={true}
+      cover={
+        <img
+          alt=""
+          className="picture-cover"
+          src=""
+        />
+      }
+      hoverable={true}
+      size="small"
+      title="Test Product 1"
+    >
+      <div
+        className="card-description"
+      >
+        Test product 1 desc
+      </div>
+      <div
+        className="card-price"
+      >
+        <Rate
+          character={<ForwardRef(StarFilled) />}
+          disabled={true}
+        />
+        <div
+          className="card-price-text-wrapper"
+        >
+          <span
+            className="card-price-text"
+          >
+            10.51
+             $
+          </span>
+        </div>
+      </div>
+      <div
+        className="card-add-button"
+      >
+        <Button
+          block={false}
+          className="card-add-btn"
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Add To Card
+        </Button>
+      </div>
+    </Card>
+  </Link>
+</Fragment>
+`;
