@@ -8,14 +8,19 @@ import ListProductCards from '../common-components/ListProductCards';
 
 const { Title } = Typography;
 
+// eslint-disable-next-line react/prefer-stateless-function
 class SearchProductsPage extends React.Component {
     render() {
-        const {key} = queryString.parse(this.props.location.search);
-        const products = this.props.products.filter(product => product.name.toLowerCase().includes(key.toLowerCase()));
+        const { key } = queryString.parse(this.props.location.search);
+        const products = this.props.products.filter((product) =>
+            product.name.toLowerCase().includes(key.toLowerCase())
+        );
         return (
             <div className="App">
                 <Title level={3}>Search for {key}</Title>
-                {products.length > 0 && <ListProductCards products={products} />}
+                {products.length > 0 && (
+                    <ListProductCards products={products} />
+                )}
                 {products.length <= 0 && <p>No found</p>}
             </div>
         );
@@ -24,6 +29,7 @@ class SearchProductsPage extends React.Component {
 
 SearchProductsPage.propTypes = {
     products: PropTypes.array,
+    location: PropTypes.any,
 };
 
 const mapStateToProps = (state) => ({

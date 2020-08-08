@@ -7,6 +7,7 @@ import ListProductCards from '../common-components/ListProductCards';
 
 const { Title } = Typography;
 
+// eslint-disable-next-line react/prefer-stateless-function
 class ShowProductsPage extends React.Component {
     render() {
         const { catName } = this.props.match.params;
@@ -26,6 +27,7 @@ class ShowProductsPage extends React.Component {
 
 ShowProductsPage.propTypes = {
     products: PropTypes.array,
+    match: PropTypes.any,
 };
 
 const mapStateToProps = (state) => ({

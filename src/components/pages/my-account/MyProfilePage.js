@@ -40,6 +40,7 @@ export class MyProfilePage extends React.Component {
                             username,
                             email,
                         }}
+                        className="user-info-wrapper"
                         onFinish={this.onFinish}
                     >
                         <Form.Item label="Username" name="username">

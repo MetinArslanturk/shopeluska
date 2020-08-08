@@ -31,6 +31,7 @@ export const CompleteOrder = ({
         wrapperCol: { span: 16 },
     };
 
+    // eslint-disable-next-line no-unused-vars
     const onFinish = (values) => {
         makePayment(cartItems)
             .then((res) => {

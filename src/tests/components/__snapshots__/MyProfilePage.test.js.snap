@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<Fragment>
+  <div
+    className="login-wrapper"
+  >
+    <ForwardRef(InternalForm)
+      className="user-info-wrapper"
+      initialValues={
+        Object {
+          "email": "admin@test.com",
+          "username": "admin",
+        }
+      }
+      labelCol={
+        Object {
+          "span": 8,
+        }
+      }
+      name="basic"
+      onFinish={[Function]}
+      wrapperCol={
+        Object {
+          "span": 16,
+        }
+      }
+    >
+      <FormItem
+        label="Username"
+        name="username"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+      <FormItem
+        label="Password"
+        name="password"
+      >
+        <Password
+          action="click"
+          visibilityToggle={true}
+        />
+      </FormItem>
+      <FormItem
+        label="Email"
+        name="email"
+      >
+        <Input
+          type="text"
+        />
+      </FormItem>
+      <FormItem
+        wrapperCol={
+          Object {
+            "offset": 8,
+            "span": 16,
+          }
+        }
+      >
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="submit"
+          loading={false}
+          type="primary"
+        >
+          Submit
+        </Button>
+      </FormItem>
+    </ForwardRef(InternalForm)>
+  </div>
+</Fragment>
+`;

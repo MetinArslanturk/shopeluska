@@ -17,7 +17,7 @@ export const ProductPage = ({ product, addToCart }) => {
     const [activeTab, setTab] = useState('description');
     const [quantity, setQuantity] = useState(1);
 
-    const handleAddToCard = (e) => {
+    const handleAddToCard = () => {
         addToCart(product._id, quantity);
     };
 
@@ -81,7 +81,9 @@ export const ProductPage = ({ product, addToCart }) => {
                                         />
                                     </div>
                                     <div className="card-add-button no-margin-top">
-                                        <Button onClick={handleAddToCard}>Add To Card</Button>
+                                        <Button onClick={handleAddToCard}>
+                                            Add To Card
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
